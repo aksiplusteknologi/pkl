@@ -41,4 +41,31 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function detail()
+    {
+
+        if ($this->user_type == 'siswa') {
+            return $this->siswa();
+        } else if ($this->user_type == 'guru') {
+            return $this->guru();
+        } else if ($this->user_type == 'admin') {
+            return $this->admin();
+        }
+    }
+
+    public function siswa()
+    {
+        return $this->hasOne(Siswa::class);
+    }
+
+    public function guru()
+    {
+        return $this->hasOne(Guru::class);
+    }
+
+    public function admin()
+    {
+        return $this->hasOne(Admin::class);
+    }
 }
