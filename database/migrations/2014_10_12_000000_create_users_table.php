@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->enum('is_active', ['y', 'n'])->default('y');
             $table->enum('user_type', [
                 'admin',
                 'siswa',
