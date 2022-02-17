@@ -1,7 +1,7 @@
 <template>
     <div>
         <App v-if="isLoggedIn" />
-        <Login>not logged in</Login>
+        <Login v-else>not logged in</Login>
     </div>
 </template>
 

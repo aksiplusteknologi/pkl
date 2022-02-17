@@ -3599,7 +3599,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  computed: {
+    isLoggedIn: function isLoggedIn() {
+      return this.$store.getters.isLoggedIn;
+    },
+    user_type: function user_type() {
+      return JSON.parse(localStorage.getItem("user")).user_type;
+    }
+  },
+  mounted: function mounted() {
+    this.setStyle();
+
+    if (this.isLoggedIn == false) {
+      // window.location.href = "/";
+      this.$router.push({
+        name: "home"
+      });
+    } else {}
+  },
+  methods: {
+    setStyle: function setStyle() {
+      $("body").addClass("dark-sidebar"); // $("body").css({
+      //     "background-image": "url('/assets/images/p-1.png')",
+      //     "background-size": "cover",
+      //     "background-position": "center center",
+      // });
+    }
+  }
+});
 
 /***/ }),
 
@@ -3807,8 +3835,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 } else {
                   _this.$store.dispatch("login", _this.form).then(function (res) {
                     if (res.data.status == 1) {
-                      swal(res.data.message, "Selamat Datang");
-                      window.location = "/";
+                      swal(res.data.message, "Selamat Datang"); // window.location = "/";
+
+                      _this.$router.push({
+                        name: "home"
+                      });
                     } else if (res.data.status == 0) {
                       swal({
                         title: "Gagal Masuk",
@@ -8364,11 +8395,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [
-      _vm.isLoggedIn ? _c("App") : _vm._e(),
-      _vm._v(" "),
-      _c("Login", [_vm._v("not logged in")]),
-    ],
+    [_vm.isLoggedIn ? _c("App") : _c("Login", [_vm._v("not logged in")])],
     1
   )
 }

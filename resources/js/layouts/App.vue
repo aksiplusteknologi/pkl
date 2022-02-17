@@ -1522,7 +1522,37 @@
 </template>
 
 <script>
-export default {};
+export default {
+    computed: {
+        isLoggedIn: function () {
+            return this.$store.getters.isLoggedIn;
+        },
+
+        user_type: function () {
+            return JSON.parse(localStorage.getItem("user")).user_type;
+        },
+    },
+
+    mounted() {
+        this.setStyle();
+        if (this.isLoggedIn == false) {
+            // window.location.href = "/";
+            this.$router.push({ name: "home" });
+        } else {
+        }
+    },
+
+    methods: {
+        setStyle: function () {
+            $("body").addClass("dark-sidebar");
+            // $("body").css({
+            //     "background-image": "url('/assets/images/p-1.png')",
+            //     "background-size": "cover",
+            //     "background-position": "center center",
+            // });
+        },
+    },
+};
 </script>
 
 <style>
