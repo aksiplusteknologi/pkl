@@ -1,9 +1,31 @@
 <template>
-    <div>Home</div>
+    <div>
+        <AdminDashboard v-if="checkType == 'admin'" />
+    </div>
 </template>
 
 <script>
-export default {};
+import AdminDashboard from "@/layouts/partials/dashboard/Admin";
+
+export default {
+    components: {
+        AdminDashboard,
+    },
+
+    computed: {
+        checkType: function () {
+            if (this.$store.getters.isLoggedIn) {
+                return JSON.parse(this.$store.getters.user).user_type;
+            } else {
+                return null;
+            }
+        },
+
+        sekolah: function () {
+            return JSON.parse(localStorage.getItem("sekolah"));
+        },
+    },
+};
 </script>
 
 <style>

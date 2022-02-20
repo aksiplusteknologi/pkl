@@ -137,8 +137,8 @@ export default {
                         if (res.data.status == 1) {
                             swal(res.data.message, "Selamat Datang");
 
-                            // window.location = "/";
-                            this.$router.push({ name: "home" });
+                            window.location = "/";
+                            // this.$router.push({ name: "home" });
                         } else if (res.data.status == 0) {
                             swal({
                                 title: "Gagal Masuk",

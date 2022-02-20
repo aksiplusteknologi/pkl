@@ -23,6 +23,7 @@ class CreateGurusTable extends Migration
             $table->string('tanggal_lahir');
             $table->string('alamat');
             $table->enum('agama', Data::getAgama());
+            $table->enum('jenis_kelamin', ['l', 'p']);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

@@ -3,6 +3,10 @@ import Router from "vue-router";
 import axios from "axios";
 import store from "@/store";
 
+// User router
+
+import admin_router from "@/router/admin";
+
 import decode from "jwt-decode";
 
 Vue.use(Router);
@@ -27,6 +31,7 @@ let router = new Router({
                 requiresAuth: true
             }
         },
+        admin_router,
 
     ]
 });
