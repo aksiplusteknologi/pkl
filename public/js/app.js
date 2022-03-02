@@ -2348,369 +2348,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     Sidebar: _layouts_partials_sidebar_Index__WEBPACK_IMPORTED_MODULE_0__["default"],
     Footer: _layouts_partials_Footer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      sekolah: {}
+    };
   },
   computed: {
     isLoggedIn: function isLoggedIn() {
@@ -2728,9 +2376,18 @@ __webpack_require__.r(__webpack_exports__);
       this.$router.push({
         name: "home"
       });
-    } else {}
+    } else {
+      this.getSekolah();
+    }
   },
   methods: {
+    getSekolah: function getSekolah() {
+      var _this = this;
+
+      axios.get("/api/pub/sekolah").then(function (res) {
+        _this.sekolah = res.data;
+      });
+    },
     setStyle: function setStyle() {
       $("body").addClass("dark-sidebar"); // $("body").css({
       //     "background-image": "url('/assets/images/p-1.png')",
@@ -2865,15 +2522,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3405,6 +3053,48 @@ var admin_router = {
       name: "admin.guru.detail",
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_pages_admin_guru_Detail_vue").then(__webpack_require__.bind(__webpack_require__, /*! @/pages/admin/guru/Detail */ "./resources/js/pages/admin/guru/Detail.vue"));
+      }
+    }]
+  }, {
+    path: "siswa/",
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_pages_Blank_vue").then(__webpack_require__.bind(__webpack_require__, /*! @/pages/Blank */ "./resources/js/pages/Blank.vue"));
+    },
+    meta: {
+      requiresAuth: true
+    },
+    children: [{
+      path: "index",
+      name: "admin.siswa.index",
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ "resources_js_pages_admin_siswa_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! @/pages/admin/siswa/Index */ "./resources/js/pages/admin/siswa/Index.vue"));
+      }
+    }, {
+      path: "detail/:siswa_id",
+      name: "admin.siswa.detail",
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ "resources_js_pages_admin_siswa_Detail_vue").then(__webpack_require__.bind(__webpack_require__, /*! @/pages/admin/siswa/Detail */ "./resources/js/pages/admin/siswa/Detail.vue"));
+      }
+    }]
+  }, {
+    path: "instansi/",
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_pages_Blank_vue").then(__webpack_require__.bind(__webpack_require__, /*! @/pages/Blank */ "./resources/js/pages/Blank.vue"));
+    },
+    meta: {
+      requiresAuth: true
+    },
+    children: [{
+      path: "index",
+      name: "admin.instansi.index",
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ "resources_js_pages_admin_instansi_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! @/pages/admin/instansi/Index */ "./resources/js/pages/admin/instansi/Index.vue"));
+      }
+    }, {
+      path: "detail/:instansi_id",
+      name: "admin.instansi.detail",
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ "resources_js_pages_admin_instansi_Detail_vue").then(__webpack_require__.bind(__webpack_require__, /*! @/pages/admin/instansi/Detail */ "./resources/js/pages/admin/instansi/Detail.vue"));
       }
     }]
   }]
@@ -27226,7 +26916,25 @@ var render = function () {
       ),
     ]),
     _vm._v(" "),
-    _vm._m(1),
+    _c("div", { staticClass: "topbar" }, [
+      _c(
+        "nav",
+        { staticClass: "navbar-custom", attrs: { id: "navbar-custom" } },
+        [
+          _vm._m(1),
+          _vm._v(" "),
+          _c("ul", { staticClass: "list-unstyled topbar-nav mb-0" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("li", { staticClass: "hide-phone app-search" }, [
+              _c("h4", [
+                _vm._v("Tahun Ajaran " + _vm._s(_vm.sekolah.tahun_ajaran)),
+              ]),
+            ]),
+          ]),
+        ]
+      ),
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "page-wrapper" }, [
       _c(
@@ -27240,7 +26948,7 @@ var render = function () {
             1
           ),
           _vm._v(" "),
-          _vm._m(2),
+          _vm._m(3),
           _vm._v(" "),
           _c("Footer"),
         ],
@@ -27281,884 +26989,110 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "topbar" }, [
-      _c(
-        "nav",
-        { staticClass: "navbar-custom", attrs: { id: "navbar-custom" } },
-        [
-          _c("ul", { staticClass: "list-unstyled topbar-nav float-end mb-0" }, [
-            _c("li", { staticClass: "dropdown" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link dropdown-toggle arrow-none nav-icon",
+    return _c(
+      "ul",
+      { staticClass: "list-unstyled topbar-nav float-end mb-0" },
+      [
+        _c("li", { staticClass: "dropdown" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link dropdown-toggle nav-user",
+              attrs: {
+                "data-bs-toggle": "dropdown",
+                href: "#",
+                role: "button",
+                "aria-haspopup": "false",
+                "aria-expanded": "false",
+              },
+            },
+            [
+              _c("div", { staticClass: "d-flex align-items-center" }, [
+                _c("img", {
+                  staticClass: "rounded-circle me-2 thumb-sm",
                   attrs: {
-                    "data-bs-toggle": "dropdown",
-                    href: "#",
-                    role: "button",
-                    "aria-haspopup": "false",
-                    "aria-expanded": "false",
+                    src: "/assets/images/blank_user.png",
+                    alt: "profile-user",
                   },
-                },
-                [
-                  _c("img", {
-                    staticClass: "thumb-xxs rounded",
-                    attrs: { src: "/assets/images/flags/us_flag.jpg", alt: "" },
-                  }),
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "dropdown-menu" }, [
-                _c(
-                  "a",
-                  { staticClass: "dropdown-item", attrs: { href: "#" } },
-                  [
-                    _c("img", {
-                      staticClass: "me-2",
-                      attrs: {
-                        src: "/assets/images/flags/us_flag.jpg",
-                        alt: "",
-                        height: "15",
-                      },
-                    }),
-                    _vm._v("English\n                        "),
-                  ]
-                ),
+                }),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "dropdown-item", attrs: { href: "#" } },
-                  [
-                    _c("img", {
-                      staticClass: "me-2",
-                      attrs: {
-                        src: "/assets/images/flags/spain_flag.jpg",
-                        alt: "",
-                        height: "15",
-                      },
-                    }),
-                    _vm._v("Spanish\n                        "),
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "dropdown-item", attrs: { href: "#" } },
-                  [
-                    _c("img", {
-                      staticClass: "me-2",
-                      attrs: {
-                        src: "/assets/images/flags/germany_flag.jpg",
-                        alt: "",
-                        height: "15",
-                      },
-                    }),
-                    _vm._v("German\n                        "),
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "dropdown-item", attrs: { href: "#" } },
-                  [
-                    _c("img", {
-                      staticClass: "me-2",
-                      attrs: {
-                        src: "/assets/images/flags/french_flag.jpg",
-                        alt: "",
-                        height: "15",
-                      },
-                    }),
-                    _vm._v("French\n                        "),
-                  ]
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "dropdown notification-list" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link dropdown-toggle arrow-none nav-icon",
-                  attrs: {
-                    "data-bs-toggle": "dropdown",
-                    href: "#",
-                    role: "button",
-                    "aria-haspopup": "false",
-                    "aria-expanded": "false",
-                  },
-                },
-                [_c("i", { staticClass: "ti ti-mail" })]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "dropdown-menu dropdown-menu-end dropdown-lg pt-0",
-                },
-                [
-                  _c(
-                    "h6",
-                    {
-                      staticClass:
-                        "dropdown-item-text font-15 m-0 py-3 border-bottom d-flex justify-content-between align-items-center",
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Emails\n                            "
-                      ),
-                      _c(
-                        "span",
-                        { staticClass: "badge bg-soft-primary badge-pill" },
-                        [_vm._v("3")]
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "notification-menu",
-                      attrs: { "data-simplebar": "" },
-                    },
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item py-3",
-                          attrs: { href: "#" },
-                        },
-                        [
-                          _c(
-                            "small",
-                            { staticClass: "float-end text-muted ps-2" },
-                            [_vm._v("2 min ago")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "media" }, [
-                            _c(
-                              "div",
-                              { staticClass: "avatar-md bg-soft-primary" },
-                              [
-                                _c("img", {
-                                  staticClass: "thumb-sm rounded-circle",
-                                  attrs: {
-                                    src: "/assets/images/users/user-1.jpg",
-                                    alt: "",
-                                  },
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "media-body align-self-center ms-2 text-truncate",
-                              },
-                              [
-                                _c(
-                                  "h6",
-                                  { staticClass: "my-0 fw-normal text-dark" },
-                                  [_vm._v("Your order is placed")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "small",
-                                  { staticClass: "text-muted mb-0" },
-                                  [
-                                    _vm._v(
-                                      "Dummy text of the printing and industry."
-                                    ),
-                                  ]
-                                ),
-                              ]
-                            ),
-                          ]),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item py-3",
-                          attrs: { href: "#" },
-                        },
-                        [
-                          _c(
-                            "small",
-                            { staticClass: "float-end text-muted ps-2" },
-                            [_vm._v("10 min ago")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "media" }, [
-                            _c(
-                              "div",
-                              { staticClass: "avatar-md bg-soft-primary" },
-                              [
-                                _c("img", {
-                                  staticClass: "thumb-sm rounded-circle",
-                                  attrs: {
-                                    src: "/assets/images/users/user-4.jpg",
-                                    alt: "",
-                                  },
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "media-body align-self-center ms-2 text-truncate",
-                              },
-                              [
-                                _c(
-                                  "h6",
-                                  { staticClass: "my-0 fw-normal text-dark" },
-                                  [_vm._v("Meeting with designers")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "small",
-                                  { staticClass: "text-muted mb-0" },
-                                  [
-                                    _vm._v(
-                                      "It is a long established fact that a reader."
-                                    ),
-                                  ]
-                                ),
-                              ]
-                            ),
-                          ]),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item py-3",
-                          attrs: { href: "#" },
-                        },
-                        [
-                          _c(
-                            "small",
-                            { staticClass: "float-end text-muted ps-2" },
-                            [_vm._v("40 min ago")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "media" }, [
-                            _c(
-                              "div",
-                              { staticClass: "avatar-md bg-soft-primary" },
-                              [
-                                _c("img", {
-                                  staticClass: "thumb-sm rounded-circle",
-                                  attrs: {
-                                    src: "/assets/images/users/user-2.jpg",
-                                    alt: "",
-                                  },
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "media-body align-self-center ms-2 text-truncate",
-                              },
-                              [
-                                _c(
-                                  "h6",
-                                  { staticClass: "my-0 fw-normal text-dark" },
-                                  [_vm._v("UX 3 Task complete.")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "small",
-                                  { staticClass: "text-muted mb-0" },
-                                  [_vm._v("Dummy text of the printing.")]
-                                ),
-                              ]
-                            ),
-                          ]),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item py-3",
-                          attrs: { href: "#" },
-                        },
-                        [
-                          _c(
-                            "small",
-                            { staticClass: "float-end text-muted ps-2" },
-                            [_vm._v("1 hr ago")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "media" }, [
-                            _c(
-                              "div",
-                              { staticClass: "avatar-md bg-soft-primary" },
-                              [
-                                _c("img", {
-                                  staticClass: "thumb-sm rounded-circle",
-                                  attrs: {
-                                    src: "/assets/images/users/user-5.jpg",
-                                    alt: "",
-                                  },
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "media-body align-self-center ms-2 text-truncate",
-                              },
-                              [
-                                _c(
-                                  "h6",
-                                  { staticClass: "my-0 fw-normal text-dark" },
-                                  [_vm._v("Your order is placed")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "small",
-                                  { staticClass: "text-muted mb-0" },
-                                  [
-                                    _vm._v(
-                                      "It is a long established fact that a reader."
-                                    ),
-                                  ]
-                                ),
-                              ]
-                            ),
-                          ]),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item py-3",
-                          attrs: { href: "#" },
-                        },
-                        [
-                          _c(
-                            "small",
-                            { staticClass: "float-end text-muted ps-2" },
-                            [_vm._v("2 hrs ago")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "media" }, [
-                            _c(
-                              "div",
-                              { staticClass: "avatar-md bg-soft-primary" },
-                              [
-                                _c("img", {
-                                  staticClass: "thumb-sm rounded-circle",
-                                  attrs: {
-                                    src: "/assets/images/users/user-3.jpg",
-                                    alt: "",
-                                  },
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "media-body align-self-center ms-2 text-truncate",
-                              },
-                              [
-                                _c(
-                                  "h6",
-                                  { staticClass: "my-0 fw-normal text-dark" },
-                                  [_vm._v("Payment Successfull")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "small",
-                                  { staticClass: "text-muted mb-0" },
-                                  [_vm._v("Dummy text of the printing.")]
-                                ),
-                              ]
-                            ),
-                          ]),
-                        ]
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "dropdown-item text-center text-primary",
-                      attrs: { href: "javascript:void(0);" },
-                    },
-                    [
-                      _vm._v(
-                        "\n                            View all\n                            "
-                      ),
-                      _c("i", { staticClass: "fi-arrow-right" }),
-                    ]
-                  ),
-                ]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "dropdown notification-list" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link dropdown-toggle arrow-none nav-icon",
-                  attrs: {
-                    "data-bs-toggle": "dropdown",
-                    href: "#",
-                    role: "button",
-                    "aria-haspopup": "false",
-                    "aria-expanded": "false",
-                  },
-                },
-                [
-                  _c("i", { staticClass: "ti ti-bell" }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "alert-badge" }),
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "dropdown-menu dropdown-menu-end dropdown-lg pt-0",
-                },
-                [
-                  _c(
-                    "h6",
-                    {
-                      staticClass:
-                        "dropdown-item-text font-15 m-0 py-3 border-bottom d-flex justify-content-between align-items-center",
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Notifications\n                            "
-                      ),
-                      _c(
-                        "span",
-                        { staticClass: "badge bg-soft-primary badge-pill" },
-                        [_vm._v("2")]
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "notification-menu",
-                      attrs: { "data-simplebar": "" },
-                    },
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item py-3",
-                          attrs: { href: "#" },
-                        },
-                        [
-                          _c(
-                            "small",
-                            { staticClass: "float-end text-muted ps-2" },
-                            [_vm._v("2 min ago")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "media" }, [
-                            _c(
-                              "div",
-                              { staticClass: "avatar-md bg-soft-primary" },
-                              [_c("i", { staticClass: "ti ti-chart-arcs" })]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "media-body align-self-center ms-2 text-truncate",
-                              },
-                              [
-                                _c(
-                                  "h6",
-                                  { staticClass: "my-0 fw-normal text-dark" },
-                                  [_vm._v("Your order is placed")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "small",
-                                  { staticClass: "text-muted mb-0" },
-                                  [
-                                    _vm._v(
-                                      "Dummy text of the printing and industry."
-                                    ),
-                                  ]
-                                ),
-                              ]
-                            ),
-                          ]),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item py-3",
-                          attrs: { href: "#" },
-                        },
-                        [
-                          _c(
-                            "small",
-                            { staticClass: "float-end text-muted ps-2" },
-                            [_vm._v("10 min ago")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "media" }, [
-                            _c(
-                              "div",
-                              { staticClass: "avatar-md bg-soft-primary" },
-                              [
-                                _c("i", {
-                                  staticClass: "ti ti-device-computer-camera",
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "media-body align-self-center ms-2 text-truncate",
-                              },
-                              [
-                                _c(
-                                  "h6",
-                                  { staticClass: "my-0 fw-normal text-dark" },
-                                  [_vm._v("Meeting with designers")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "small",
-                                  { staticClass: "text-muted mb-0" },
-                                  [
-                                    _vm._v(
-                                      "It is a long established fact that a reader."
-                                    ),
-                                  ]
-                                ),
-                              ]
-                            ),
-                          ]),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item py-3",
-                          attrs: { href: "#" },
-                        },
-                        [
-                          _c(
-                            "small",
-                            { staticClass: "float-end text-muted ps-2" },
-                            [_vm._v("40 min ago")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "media" }, [
-                            _c(
-                              "div",
-                              { staticClass: "avatar-md bg-soft-primary" },
-                              [_c("i", { staticClass: "ti ti-diamond" })]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "media-body align-self-center ms-2 text-truncate",
-                              },
-                              [
-                                _c(
-                                  "h6",
-                                  { staticClass: "my-0 fw-normal text-dark" },
-                                  [_vm._v("UX 3 Task complete.")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "small",
-                                  { staticClass: "text-muted mb-0" },
-                                  [_vm._v("Dummy text of the printing.")]
-                                ),
-                              ]
-                            ),
-                          ]),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item py-3",
-                          attrs: { href: "#" },
-                        },
-                        [
-                          _c(
-                            "small",
-                            { staticClass: "float-end text-muted ps-2" },
-                            [_vm._v("1 hr ago")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "media" }, [
-                            _c(
-                              "div",
-                              { staticClass: "avatar-md bg-soft-primary" },
-                              [_c("i", { staticClass: "ti ti-drone" })]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "media-body align-self-center ms-2 text-truncate",
-                              },
-                              [
-                                _c(
-                                  "h6",
-                                  { staticClass: "my-0 fw-normal text-dark" },
-                                  [_vm._v("Your order is placed")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "small",
-                                  { staticClass: "text-muted mb-0" },
-                                  [
-                                    _vm._v(
-                                      "It is a long established fact that a reader."
-                                    ),
-                                  ]
-                                ),
-                              ]
-                            ),
-                          ]),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item py-3",
-                          attrs: { href: "#" },
-                        },
-                        [
-                          _c(
-                            "small",
-                            { staticClass: "float-end text-muted ps-2" },
-                            [_vm._v("2 hrs ago")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "media" }, [
-                            _c(
-                              "div",
-                              { staticClass: "avatar-md bg-soft-primary" },
-                              [_c("i", { staticClass: "ti ti-users" })]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "media-body align-self-center ms-2 text-truncate",
-                              },
-                              [
-                                _c(
-                                  "h6",
-                                  { staticClass: "my-0 fw-normal text-dark" },
-                                  [_vm._v("Payment Successfull")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "small",
-                                  { staticClass: "text-muted mb-0" },
-                                  [_vm._v("Dummy text of the printing.")]
-                                ),
-                              ]
-                            ),
-                          ]),
-                        ]
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "dropdown-item text-center text-primary",
-                      attrs: { href: "javascript:void(0);" },
-                    },
-                    [
-                      _vm._v(
-                        "\n                            View all\n                            "
-                      ),
-                      _c("i", { staticClass: "fi-arrow-right" }),
-                    ]
-                  ),
-                ]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "dropdown" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link dropdown-toggle nav-user",
-                  attrs: {
-                    "data-bs-toggle": "dropdown",
-                    href: "#",
-                    role: "button",
-                    "aria-haspopup": "false",
-                    "aria-expanded": "false",
-                  },
-                },
-                [
-                  _c("div", { staticClass: "d-flex align-items-center" }, [
-                    _c("img", {
-                      staticClass: "rounded-circle me-2 thumb-sm",
-                      attrs: {
-                        src: "/assets/images/users/user-4.jpg",
-                        alt: "profile-user",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("div", [
-                      _c(
-                        "small",
-                        { staticClass: "d-none d-md-block font-11" },
-                        [_vm._v("Admin")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          staticClass: "d-none d-md-block fw-semibold font-12",
-                        },
-                        [
-                          _vm._v(
-                            "\n                                    Maria Gibson\n                                    "
-                          ),
-                          _c("i", { staticClass: "mdi mdi-chevron-down" }),
-                        ]
-                      ),
-                    ]),
+                _c("div", [
+                  _c("small", { staticClass: "d-none d-md-block font-11" }, [
+                    _vm._v("Admin"),
                   ]),
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "dropdown-menu dropdown-menu-end" }, [
-                _c(
-                  "a",
-                  { staticClass: "dropdown-item", attrs: { href: "#" } },
-                  [
-                    _c("i", {
-                      staticClass: "ti ti-user font-16 me-1 align-text-bottom",
-                    }),
-                    _vm._v(" Profile\n                        "),
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "dropdown-item", attrs: { href: "#" } },
-                  [
-                    _c("i", {
-                      staticClass:
-                        "ti ti-settings font-16 me-1 align-text-bottom",
-                    }),
-                    _vm._v(" Settings\n                        "),
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "dropdown-divider mb-0" }),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "dropdown-item", attrs: { href: "#" } },
-                  [
-                    _c("i", {
-                      staticClass: "ti ti-power font-16 me-1 align-text-bottom",
-                    }),
-                    _vm._v(" Logout\n                        "),
-                  ]
-                ),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    { staticClass: "d-none d-md-block fw-semibold font-12" },
+                    [
+                      _vm._v(
+                        "\n                                    Administrator\n                                    "
+                      ),
+                      _c("i", { staticClass: "mdi mdi-chevron-down" }),
+                    ]
+                  ),
+                ]),
               ]),
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "notification-list" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link arrow-none nav-icon offcanvas-btn",
-                  attrs: {
-                    href: "#",
-                    "data-bs-toggle": "offcanvas",
-                    "data-bs-target": "#Appearance",
-                    role: "button",
-                    "aria-controls": "Rightbar",
-                  },
-                },
-                [_c("i", { staticClass: "ti ti-settings ti-spin" })]
-              ),
-            ]),
-          ]),
+            ]
+          ),
           _vm._v(" "),
-          _c("ul", { staticClass: "list-unstyled topbar-nav mb-0" }, [
-            _c("li", [
-              _c(
-                "button",
-                {
-                  staticClass: "nav-link button-menu-mobile nav-icon",
-                  attrs: { id: "togglemenu" },
-                },
-                [_c("i", { staticClass: "ti ti-menu-2" })]
-              ),
+          _c("div", { staticClass: "dropdown-menu dropdown-menu-end" }, [
+            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+              _c("i", {
+                staticClass: "ti ti-user font-16 me-1 align-text-bottom",
+              }),
+              _vm._v(" Profile\n                        "),
             ]),
             _vm._v(" "),
-            _c("li", { staticClass: "hide-phone app-search" }, [
-              _c(
-                "form",
-                { attrs: { role: "search", action: "#", method: "get" } },
-                [
-                  _c("input", {
-                    staticClass: "form-control top-search mb-0",
-                    attrs: {
-                      type: "search",
-                      name: "search",
-                      placeholder: "Type text...",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("button", { attrs: { type: "submit" } }, [
-                    _c("i", { staticClass: "ti ti-search" }),
-                  ]),
-                ]
-              ),
+            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+              _c("i", {
+                staticClass: "ti ti-settings font-16 me-1 align-text-bottom",
+              }),
+              _vm._v(" Settings\n                        "),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "dropdown-divider mb-0" }),
+            _vm._v(" "),
+            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+              _c("i", {
+                staticClass: "ti ti-power font-16 me-1 align-text-bottom",
+              }),
+              _vm._v(" Logout\n                        "),
             ]),
           ]),
-        ]
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "notification-list" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link arrow-none nav-icon offcanvas-btn",
+              attrs: {
+                href: "#",
+                "data-bs-toggle": "offcanvas",
+                "data-bs-target": "#Appearance",
+                role: "button",
+                "aria-controls": "Rightbar",
+              },
+            },
+            [_c("i", { staticClass: "ti ti-settings ti-spin" })]
+          ),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "button",
+        {
+          staticClass: "nav-link button-menu-mobile nav-icon",
+          attrs: { id: "togglemenu" },
+        },
+        [_c("i", { staticClass: "ti ti-menu-2" })]
       ),
     ])
   },
@@ -28500,46 +27434,14 @@ var render = function () {
             "li",
             {
               staticClass: "nav-item",
-              class: {
-                "menuitem-active": _vm.subIsActive(
-                  "/admin_area/pengaturan/index"
-                ),
-              },
+              class: { "menuitem-active": _vm.subIsActive("/admin_area/pkl") },
             },
             [
               _c(
                 "router-link",
                 {
                   staticClass: "nav-link",
-                  class: {
-                    active: _vm.subIsActive("/admin_area/pengaturan/index"),
-                  },
-                  attrs: { to: { name: "admin.pengaturan.index" } },
-                },
-                [
-                  _c("i", { staticClass: "ti ti-settings menu-icon" }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Pengaturan")]),
-                ]
-              ),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            {
-              staticClass: "nav-item",
-              class: {
-                "menuitem-active": _vm.subIsActive("/admin_area/pkl/index"),
-              },
-            },
-            [
-              _c(
-                "router-link",
-                {
-                  staticClass: "nav-link",
-                  class: { active: _vm.subIsActive("/admin_area/pkl/index") },
+                  class: { active: _vm.subIsActive("/admin_area/pkl") },
                   attrs: { to: { name: "admin.pkl.index" } },
                 },
                 [
@@ -28559,9 +27461,7 @@ var render = function () {
             {
               staticClass: "nav-item",
               class: {
-                "menuitem-active": _vm.subIsActive(
-                  "/admin_area/instansi/index"
-                ),
+                "menuitem-active": _vm.subIsActive("/admin_area/instansi"),
               },
             },
             [
@@ -28569,9 +27469,7 @@ var render = function () {
                 "router-link",
                 {
                   staticClass: "nav-link",
-                  class: {
-                    active: _vm.subIsActive("/admin_area/instansi/index"),
-                  },
+                  class: { active: _vm.subIsActive("/admin_area/instansi") },
                   attrs: { to: { name: "admin.instansi.index" } },
                 },
                 [
@@ -28589,7 +27487,7 @@ var render = function () {
             {
               staticClass: "nav-item",
               class: {
-                "menuitem-active": _vm.subIsActive("/admin_area/siswa/index"),
+                "menuitem-active": _vm.subIsActive("/admin_area/siswa"),
               },
             },
             [
@@ -28597,7 +27495,7 @@ var render = function () {
                 "router-link",
                 {
                   staticClass: "nav-link",
-                  class: { active: _vm.subIsActive("/admin_area/siswa/index") },
+                  class: { active: _vm.subIsActive("/admin_area/siswa") },
                   attrs: { to: { name: "admin.siswa.index" } },
                 },
                 [
@@ -28614,16 +27512,14 @@ var render = function () {
             "li",
             {
               staticClass: "nav-item",
-              class: {
-                "menuitem-active": _vm.subIsActive("/admin_area/guru/index"),
-              },
+              class: { "menuitem-active": _vm.subIsActive("/admin_area/guru") },
             },
             [
               _c(
                 "router-link",
                 {
                   staticClass: "nav-link",
-                  class: { active: _vm.subIsActive("/admin_area/guru/index") },
+                  class: { active: _vm.subIsActive("/admin_area/guru") },
                   attrs: { to: { name: "admin.guru.index" } },
                 },
                 [
@@ -45611,7 +44507,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_pages_Home_vue":1,"resources_js_pages_Blank_vue":1,"resources_js_pages_admin_pengaturan_Index_vue":1,"resources_js_pages_admin_pkl_Index_vue":1,"resources_js_pages_admin_pkl_Detail_vue":1,"resources_js_pages_admin_guru_Index_vue":1,"resources_js_pages_admin_guru_Detail_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_Home_vue":1,"resources_js_pages_Blank_vue":1,"resources_js_pages_admin_pengaturan_Index_vue":1,"resources_js_pages_admin_pkl_Index_vue":1,"resources_js_pages_admin_pkl_Detail_vue":1,"resources_js_pages_admin_guru_Index_vue":1,"resources_js_pages_admin_guru_Detail_vue":1,"resources_js_pages_admin_siswa_Index_vue":1,"resources_js_pages_admin_siswa_Detail_vue":1,"resources_js_pages_admin_instansi_Index_vue":1,"resources_js_pages_admin_instansi_Detail_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

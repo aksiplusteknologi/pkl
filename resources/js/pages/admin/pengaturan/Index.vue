@@ -3,9 +3,12 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Pengaturan</h4>
-                <p
-                    class="text-muted mb-0"
-                >Lakukan Pengaturan untuk Waktu Mulai, Waktu Selesai untuk Masa Pelaksanaan Prakter Kerja Lapangan</p>
+                <p class="text-muted mb-0">
+                    Lakukan Pengaturan untuk Waktu Mulai, Waktu Selesai untuk Masa Pelaksanaan Prakter Kerja Lapangan Tahun Ajaran
+                    <strong>
+                        <i>{{ sekolah.tahun_ajaran }}</i>
+                    </strong>
+                </p>
             </div>
             <!--end card-header-->
             <div class="card-body">
@@ -50,13 +53,21 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="mulai">Waktu Mulai Pelaksaan</label>
-                                                <input type="date" class="form-control" />
+                                                <input
+                                                    type="date"
+                                                    v-model="sekolah.tanggal_mulai"
+                                                    class="form-control"
+                                                />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="mulai">Waktu Akhir Pelaksaan</label>
-                                                <input type="date" class="form-control" />
+                                                <input
+                                                    type="date"
+                                                    v-model="sekolah.tanggal_mulai"
+                                                    class="form-control"
+                                                />
                                             </div>
                                         </div>
                                     </div>
@@ -93,6 +104,7 @@
 export default {
     data: () => ({
         sekolah: {},
+        pkl: {},
     }),
 
     mounted() {
@@ -103,7 +115,13 @@ export default {
         getSekolah: function () {
             axios.get("/api/pub/sekolah").then((res) => {
                 this.sekolah = res.data;
-                console.log(res.data);
+                this.getPKL(res.data.tahun_ajaran);
+            });
+        },
+
+        getPKL: function (tahun_ajaran) {
+            axios.get("/api/admin/pkl/" + tahun_ajaran).then((res) => {
+                this.pkl = res.data;
             });
         },
     },

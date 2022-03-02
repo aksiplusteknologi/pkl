@@ -10,4 +10,17 @@ class PKL extends Model
     use HasFactory;
 
     protected $table = 'pkl';
+
+    protected $fillable = [
+        'tahun_ajaran',
+        'status',
+        'guru_id',
+        'tanggal_mulai',
+        'tanggal_selesai',
+    ];
+
+    public function guru()
+    {
+        return $this->belongsTo(Guru::class);
+    }
 }

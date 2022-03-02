@@ -54,6 +54,44 @@ let admin_router = {
                 },
             ]
         },
+        {
+            path: "siswa/",
+            component: () => import("@/pages/Blank"),
+            meta: {
+                requiresAuth: true
+            },
+            children: [
+                {
+                    path: "index",
+                    name: "admin.siswa.index",
+                    component: () => import("@/pages/admin/siswa/Index"),
+                },
+                {
+                    path: "detail/:siswa_id",
+                    name: "admin.siswa.detail",
+                    component: () => import("@/pages/admin/siswa/Detail"),
+                },
+            ]
+        },
+        {
+            path: "instansi/",
+            component: () => import("@/pages/Blank"),
+            meta: {
+                requiresAuth: true
+            },
+            children: [
+                {
+                    path: "index",
+                    name: "admin.instansi.index",
+                    component: () => import("@/pages/admin/instansi/Index"),
+                },
+                {
+                    path: "detail/:instansi_id",
+                    name: "admin.instansi.detail",
+                    component: () => import("@/pages/admin/instansi/Detail"),
+                },
+            ]
+        },
     ]
 };
 

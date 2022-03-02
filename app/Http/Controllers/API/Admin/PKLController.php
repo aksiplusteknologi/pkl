@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Guru;
 use Illuminate\Http\Request;
 
-class GuruController extends Controller
+use App\Models\PKL;
+
+class PKLController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +16,12 @@ class GuruController extends Controller
      */
     public function index(Request $request)
     {
-
-        $datas = Guru::query();
+        $datas = PKL::with(['guru']);
 
         if ($request->searchTerm) {
             $escaped_str = "%$request->searchTerm%";
 
-            $datas->where('nuptk', 'LIKE', $escaped_str);
+            $datas->where('tahun_ajaran', 'LIKE', $escaped_str);
         }
 
         if ($request->sort_type != 'none' && isset($request->sort_field)) {
@@ -58,11 +58,11 @@ class GuruController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($tahun_ajaran)
     {
-        $guru = Guru::findOrFail($id);
+        $pkl = PKL::where('tahun_ajaran', $tahun_ajaran)->first();
 
-        return response()->json($guru);
+        return response()->json($pkl);
     }
 
     /**

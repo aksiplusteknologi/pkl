@@ -12,26 +12,23 @@
                     <span>Dashboard</span>
                 </router-link>
             </li>
-            <li
+            <!-- <li
                 class="nav-item"
-                :class="{ 'menuitem-active': subIsActive('/admin_area/pengaturan/index') }"
+                :class="{ 'menuitem-active': subIsActive('/admin_area/pengaturan') }"
             >
                 <router-link
                     class="nav-link"
-                    :class="{ 'active': subIsActive('/admin_area/pengaturan/index') }"
+                    :class="{ 'active': subIsActive('/admin_area/pengaturan') }"
                     :to="{ name: 'admin.pengaturan.index' }"
                 >
                     <i class="ti ti-settings menu-icon"></i>
                     <span>Pengaturan</span>
                 </router-link>
-            </li>
-            <li
-                class="nav-item"
-                :class="{ 'menuitem-active': subIsActive('/admin_area/pkl/index') }"
-            >
+            </li>-->
+            <li class="nav-item" :class="{ 'menuitem-active': subIsActive('/admin_area/pkl') }">
                 <router-link
                     class="nav-link"
-                    :class="{ 'active': subIsActive('/admin_area/pkl/index') }"
+                    :class="{ 'active': subIsActive('/admin_area/pkl') }"
                     :to="{ name: 'admin.pkl.index' }"
                 >
                     <i class="ti ti-folder menu-icon"></i>
@@ -45,37 +42,31 @@
             </li>
             <li
                 class="nav-item"
-                :class="{ 'menuitem-active': subIsActive('/admin_area/instansi/index') }"
+                :class="{ 'menuitem-active': subIsActive('/admin_area/instansi') }"
             >
                 <router-link
                     class="nav-link"
-                    :class="{ 'active': subIsActive('/admin_area/instansi/index') }"
+                    :class="{ 'active': subIsActive('/admin_area/instansi') }"
                     :to="{ name: 'admin.instansi.index' }"
                 >
                     <i class="ti ti-home menu-icon"></i>
                     <span>Instansi</span>
                 </router-link>
             </li>
-            <li
-                class="nav-item"
-                :class="{ 'menuitem-active': subIsActive('/admin_area/siswa/index') }"
-            >
+            <li class="nav-item" :class="{ 'menuitem-active': subIsActive('/admin_area/siswa') }">
                 <router-link
                     class="nav-link"
-                    :class="{ 'active': subIsActive('/admin_area/siswa/index') }"
+                    :class="{ 'active': subIsActive('/admin_area/siswa') }"
                     :to="{ name: 'admin.siswa.index' }"
                 >
                     <i class="ti ti-user menu-icon"></i>
                     <span>Siswa</span>
                 </router-link>
             </li>
-            <li
-                class="nav-item"
-                :class="{ 'menuitem-active': subIsActive('/admin_area/guru/index') }"
-            >
+            <li class="nav-item" :class="{ 'menuitem-active': subIsActive('/admin_area/guru') }">
                 <router-link
                     class="nav-link"
-                    :class="{ 'active': subIsActive('/admin_area/guru/index') }"
+                    :class="{ 'active': subIsActive('/admin_area/guru') }"
                     :to="{ name: 'admin.guru.index' }"
                 >
                     <i class="fa fa-users menu-icon"></i>

@@ -102,10 +102,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      sekolah: {}
+      sekolah: {},
+      pkl: {}
     };
   },
   mounted: function mounted() {
@@ -117,7 +129,15 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/pub/sekolah").then(function (res) {
         _this.sekolah = res.data;
-        console.log(res.data);
+
+        _this.getPKL(res.data.tahun_ajaran);
+      });
+    },
+    getPKL: function getPKL(tahun_ajaran) {
+      var _this2 = this;
+
+      axios.get("/api/admin/pkl/" + tahun_ajaran).then(function (res) {
+        _this2.pkl = res.data;
       });
     }
   }
@@ -209,178 +229,234 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-header" }, [
+        _c("h4", { staticClass: "card-title" }, [_vm._v("Pengaturan")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-muted mb-0" }, [
+          _vm._v(
+            "\n                Lakukan Pengaturan untuk Waktu Mulai, Waktu Selesai untuk Masa Pelaksanaan Prakter Kerja Lapangan Tahun Ajaran\n                "
+          ),
+          _c("strong", [_c("i", [_vm._v(_vm._s(_vm.sekolah.tahun_ajaran))])]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "tab-content" }, [
+          _c(
+            "div",
+            {
+              staticClass: "tab-pane p-3 active",
+              attrs: { id: "home-1", role: "tabpanel" },
+            },
+            [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-9" }, [
+                  _c("form", [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "mulai" } }, [
+                            _vm._v("Waktu Mulai Pelaksaan"),
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.sekolah.tanggal_mulai,
+                                expression: "sekolah.tanggal_mulai",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "date" },
+                            domProps: { value: _vm.sekolah.tanggal_mulai },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.sekolah,
+                                  "tanggal_mulai",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "mulai" } }, [
+                            _vm._v("Waktu Akhir Pelaksaan"),
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.sekolah.tanggal_mulai,
+                                expression: "sekolah.tanggal_mulai",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "date" },
+                            domProps: { value: _vm.sekolah.tanggal_mulai },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.sekolah,
+                                  "tanggal_mulai",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                      ]),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _vm._m(1),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _vm._m(3),
+        ]),
+      ]),
+    ]),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-header" }, [
-          _c("h4", { staticClass: "card-title" }, [_vm._v("Pengaturan")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "text-muted mb-0" }, [
-            _vm._v(
-              "Lakukan Pengaturan untuk Waktu Mulai, Waktu Selesai untuk Masa Pelaksanaan Prakter Kerja Lapangan"
-            ),
-          ]),
+    return _c(
+      "ul",
+      {
+        staticClass: "nav nav-pills nav-justified",
+        attrs: { role: "tablist" },
+      },
+      [
+        _c("li", { staticClass: "nav-item waves-effect waves-light" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link active",
+              attrs: {
+                "data-bs-toggle": "tab",
+                href: "#home-1",
+                role: "tab",
+                "aria-selected": "true",
+              },
+            },
+            [_vm._v("Home")]
+          ),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
+        _c("li", { staticClass: "nav-item waves-effect waves-light" }, [
           _c(
-            "ul",
+            "a",
             {
-              staticClass: "nav nav-pills nav-justified",
-              attrs: { role: "tablist" },
+              staticClass: "nav-link",
+              attrs: {
+                "data-bs-toggle": "tab",
+                href: "#profile-1",
+                role: "tab",
+                "aria-selected": "false",
+              },
             },
-            [
-              _c("li", { staticClass: "nav-item waves-effect waves-light" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "nav-link active",
-                    attrs: {
-                      "data-bs-toggle": "tab",
-                      href: "#home-1",
-                      role: "tab",
-                      "aria-selected": "true",
-                    },
-                  },
-                  [_vm._v("Home")]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item waves-effect waves-light" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "nav-link",
-                    attrs: {
-                      "data-bs-toggle": "tab",
-                      href: "#profile-1",
-                      role: "tab",
-                      "aria-selected": "false",
-                    },
-                  },
-                  [_vm._v("Profile")]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item waves-effect waves-light" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "nav-link",
-                    attrs: {
-                      "data-bs-toggle": "tab",
-                      href: "#settings-1",
-                      role: "tab",
-                      "aria-selected": "false",
-                    },
-                  },
-                  [_vm._v("Settings")]
-                ),
-              ]),
-            ]
+            [_vm._v("Profile")]
           ),
-          _vm._v(" "),
-          _c("div", { staticClass: "tab-content" }, [
-            _c(
-              "div",
-              {
-                staticClass: "tab-pane p-3 active",
-                attrs: { id: "home-1", role: "tabpanel" },
-              },
-              [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-9" }, [
-                    _c("form", [
-                      _c("div", { staticClass: "row" }, [
-                        _c("div", { staticClass: "col-md-6" }, [
-                          _c("div", { staticClass: "form-group" }, [
-                            _c("label", { attrs: { for: "mulai" } }, [
-                              _vm._v("Waktu Mulai Pelaksaan"),
-                            ]),
-                            _vm._v(" "),
-                            _c("input", {
-                              staticClass: "form-control",
-                              attrs: { type: "date" },
-                            }),
-                          ]),
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "col-md-6" }, [
-                          _c("div", { staticClass: "form-group" }, [
-                            _c("label", { attrs: { for: "mulai" } }, [
-                              _vm._v("Waktu Akhir Pelaksaan"),
-                            ]),
-                            _vm._v(" "),
-                            _c("input", {
-                              staticClass: "form-control",
-                              attrs: { type: "date" },
-                            }),
-                          ]),
-                        ]),
-                      ]),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-3" }, [
-                    _c("div", { staticClass: "d-grid gap-2" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-primary",
-                          attrs: { type: "button" },
-                        },
-                        [
-                          _c("i", { staticClass: "fa fa-check" }),
-                          _vm._v(
-                            " Simpan Pengaturan\n                                "
-                          ),
-                        ]
-                      ),
-                    ]),
-                  ]),
-                ]),
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "tab-pane p-3",
-                attrs: { id: "profile-1", role: "tabpanel" },
-              },
-              [
-                _c("p", { staticClass: "text-muted mb-0" }, [
-                  _vm._v(
-                    "\n                        Food truck fixie locavore, accusamus mcsweeney's\n                        single-origin coffee squid.\n                    "
-                  ),
-                ]),
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "tab-pane p-3",
-                attrs: { id: "settings-1", role: "tabpanel" },
-              },
-              [
-                _c("p", { staticClass: "text-muted mb-0" }, [
-                  _vm._v(
-                    "Trust fund seitan letterpress, keytar raw denim keffiyeh etsy."
-                  ),
-                ]),
-              ]
-            ),
-          ]),
         ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item waves-effect waves-light" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                "data-bs-toggle": "tab",
+                href: "#settings-1",
+                role: "tab",
+                "aria-selected": "false",
+              },
+            },
+            [_vm._v("Settings")]
+          ),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-3" }, [
+      _c("div", { staticClass: "d-grid gap-2" }, [
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "button" } },
+          [
+            _c("i", { staticClass: "fa fa-check" }),
+            _vm._v(" Simpan Pengaturan\n                                "),
+          ]
+        ),
       ]),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "tab-pane p-3",
+        attrs: { id: "profile-1", role: "tabpanel" },
+      },
+      [
+        _c("p", { staticClass: "text-muted mb-0" }, [
+          _vm._v(
+            "\n                        Food truck fixie locavore, accusamus mcsweeney's\n                        single-origin coffee squid.\n                    "
+          ),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "tab-pane p-3",
+        attrs: { id: "settings-1", role: "tabpanel" },
+      },
+      [
+        _c("p", { staticClass: "text-muted mb-0" }, [
+          _vm._v(
+            "Trust fund seitan letterpress, keytar raw denim keffiyeh etsy."
+          ),
+        ]),
+      ]
+    )
   },
 ]
 render._withStripped = true
