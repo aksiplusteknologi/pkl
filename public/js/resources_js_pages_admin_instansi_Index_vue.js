@@ -104,45 +104,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   filters: {
@@ -155,20 +116,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       table: {
         rows: [],
         columns: [{
-          label: "NUPTK",
-          field: "nuptk"
-        }, {
-          label: "Nama Guru",
+          label: "Nama Instansi / Perusahaan",
           field: "nama",
           sortable: true
         }, {
-          label: "JK",
-          field: "jenis_kelamin",
+          label: "Status Kepemilikan",
+          field: "status_kepemilikan",
           sortable: true
         }, {
-          label: "TTL",
-          field: "ttl",
-          sortable: false
+          label: "Jenis Perusahaan",
+          field: "jenis_perusahaan",
+          sortable: true
         }, {
           label: "",
           field: "aksi",
@@ -192,11 +150,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       var params = this.table.serverParams;
-      axios.get("/api/admin/guru", {
+      axios.get("/api/admin/instansi", {
         params: params
       }).then(function (res) {
         _this.table.rows = res.data.data;
         _this.table.totalRows = res.data.total;
+      });
+    },
+    deleteInstansi: function deleteInstansi(instansi) {
+      var _this2 = this;
+
+      swal({
+        title: "Anda akan menghapus Data Instansi " + instansi.nama,
+        text: "Lanjutkan?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: false
+      }).then(function (value) {
+        if (value) {
+          axios["delete"]("/api/admin/instansi/" + instansi.id).then(function (res) {
+            toastr.success(res.data.message, "Berhasil!!");
+
+            _this2.initData();
+          });
+        }
       });
     },
     // Datatable Methods
@@ -418,19 +395,36 @@ var render = function () {
       _c("div", { staticClass: "card-header" }, [
         _c("div", { staticClass: "float-start" }, [
           _c("h4", { staticClass: "card-title" }, [
-            _vm._v("Manajemen Data Guru / Pembimbing Sekolah"),
+            _vm._v("Manajemen Instansi / Perusahaan"),
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "text-muted mb-0" }, [
             _vm._v(
               "Menampilkan " +
                 _vm._s(_vm.table.rows.length) +
-                " Data Pelaksanaan Praktek Kerja Lapangan"
+                " Data Instansi / Perusahaan"
             ),
           ]),
         ]),
         _vm._v(" "),
-        _vm._m(0),
+        _c(
+          "div",
+          { staticClass: "float-end" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "btn btn-primary",
+                attrs: { to: { name: "admin.instansi.add" } },
+              },
+              [
+                _c("i", { staticClass: "fa fa-plus" }),
+                _vm._v(" Tambah Instansi\n                "),
+              ]
+            ),
+          ],
+          1
+        ),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
@@ -438,195 +432,88 @@ var render = function () {
           "div",
           { staticClass: "table-responsive" },
           [
-            _c(
-              "vue-good-table",
-              {
-                attrs: {
-                  "search-options": {
-                    enabled: true,
-                    trigger: "enter",
-                    skipDiacritics: true,
-                    placeholder: "Type and enter to search",
-                  },
-                  mode: "remote",
-                  totalRows: _vm.table.totalRows,
-                  "pagination-options": {
-                    enabled: true,
-                    mode: "pages",
-                    perPage: _vm.table.serverParams.perPage,
-                    position: "bottom",
-                    perPageDropdown: _vm.table.perPageDropDown,
-                    dropdownAllowAll: false,
-                    setCurrentPage: _vm.table.serverParams.page,
-                    nextLabel: "Next",
-                    prevLabel: "Prev",
-                    rowsPerPageLabel: "Rows per page",
-                    ofLabel: "of",
-                    pageLabel: "page", // for 'pages' mode
-                    allLabel: "All",
-                  },
-                  columns: _vm.table.columns,
-                  rows: _vm.table.rows,
-                  styleClass: "vgt-table condensed pgTble",
+            _c("vue-good-table", {
+              attrs: {
+                "search-options": {
+                  enabled: true,
+                  trigger: "enter",
+                  skipDiacritics: true,
+                  placeholder: "Type and enter to search",
                 },
-                on: {
-                  "on-selected-rows-change": _vm.selectionChanged,
-                  "on-search": _vm.onColumnSearch,
-                  "on-page-change": _vm.onPageChange,
-                  "on-sort-change": _vm.onSortChange,
-                  "on-column-filter": _vm.onColumnFilter,
-                  "on-per-page-change": _vm.onPerPageChange,
+                mode: "remote",
+                totalRows: _vm.table.totalRows,
+                "pagination-options": {
+                  enabled: true,
+                  mode: "pages",
+                  perPage: _vm.table.serverParams.perPage,
+                  position: "bottom",
+                  perPageDropdown: _vm.table.perPageDropDown,
+                  dropdownAllowAll: false,
+                  setCurrentPage: _vm.table.serverParams.page,
+                  nextLabel: "Next",
+                  prevLabel: "Prev",
+                  rowsPerPageLabel: "Rows per page",
+                  ofLabel: "of",
+                  pageLabel: "page", // for 'pages' mode
+                  allLabel: "All",
                 },
-                scopedSlots: _vm._u([
-                  {
-                    key: "table-row",
-                    fn: function (props) {
-                      return [
-                        props.column.field == "nuptk"
-                          ? _c("span", [
-                              _vm._v(
-                                "\n                            " +
-                                  _vm._s(props.row.nuptk) +
-                                  "\n                        "
-                              ),
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        props.column.field == "nama"
-                          ? _c(
-                              "span",
-                              [
-                                _c(
-                                  "router-link",
-                                  {
-                                    attrs: {
-                                      to: {
-                                        name: "admin.guru.detail",
-                                        params: { guru_id: props.row.id },
-                                      },
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title:
-                                        "Klik Untuk Melihat Detail " +
-                                        props.row.nama,
-                                    },
-                                  },
-                                  [_vm._v(_vm._s(props.row.nama))]
-                                ),
-                              ],
-                              1
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        props.column.field == "jenis_kelamin"
-                          ? _c("span", [
-                              props.row.jenis_kelamin == "l"
-                                ? _c(
-                                    "span",
-                                    { staticClass: "badge bg-success" },
-                                    [
-                                      _c("i", { staticClass: "fa fa-mars" }),
-                                      _vm._v(
-                                        " L\n                            "
-                                      ),
-                                    ]
-                                  )
-                                : _c(
-                                    "span",
-                                    { staticClass: "badge bg-danger" },
-                                    [
-                                      _c("i", { staticClass: "fa fa-venus" }),
-                                      _vm._v(
-                                        " P\n                            "
-                                      ),
-                                    ]
-                                  ),
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        props.column.field == "ttl"
-                          ? _c("span", [
-                              _c("i", [_vm._v(_vm._s(props.row.tempat_lahir))]),
-                              _vm._v(
-                                "\n                            , " +
-                                  _vm._s(
-                                    _vm._f("indoDate")(props.row.tanggal_lahir)
-                                  ) +
-                                  "\n                        "
-                              ),
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        props.column.field == "aksi"
-                          ? _c("span", [
-                              _c(
-                                "span",
-                                {
-                                  staticClass: "pointer badge bg-warning",
-                                  on: {
-                                    click: function ($event) {
-                                      return _vm.editGuru(props.row.id)
-                                    },
-                                  },
-                                },
-                                [
-                                  _c("i", { staticClass: "fa fa-wrench" }),
-                                  _vm._v(" Edit\n                            "),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "pointer badge bg-danger pointer",
-                                  on: {
-                                    click: function ($event) {
-                                      return _vm.deleteGuru(props.row.id)
-                                    },
-                                  },
-                                },
-                                [
-                                  _c("i", { staticClass: "fa fa-trash" }),
-                                  _vm._v(
-                                    " Hapus\n                            "
-                                  ),
-                                ]
-                              ),
-                            ])
-                          : _vm._e(),
-                      ]
-                    },
-                  },
-                ]),
+                columns: _vm.table.columns,
+                rows: _vm.table.rows,
+                styleClass: "vgt-table condensed pgTble",
               },
-              [
-                _c(
-                  "div",
-                  {
-                    attrs: { slot: "selected-row-actions" },
-                    slot: "selected-row-actions",
+              on: {
+                "on-selected-rows-change": _vm.selectionChanged,
+                "on-search": _vm.onColumnSearch,
+                "on-page-change": _vm.onPageChange,
+                "on-sort-change": _vm.onSortChange,
+                "on-column-filter": _vm.onColumnFilter,
+                "on-per-page-change": _vm.onPerPageChange,
+              },
+              scopedSlots: _vm._u([
+                {
+                  key: "table-row",
+                  fn: function (props) {
+                    return [
+                      props.column.field == "aksi"
+                        ? _c("span", [
+                            _c(
+                              "span",
+                              {
+                                staticClass: "pointer badge bg-warning",
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.editInstansi(props.row)
+                                  },
+                                },
+                              },
+                              [
+                                _c("i", { staticClass: "fa fa-wrench" }),
+                                _vm._v(" Edit\n                            "),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "pointer badge bg-danger pointer",
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.deleteInstansi(props.row)
+                                  },
+                                },
+                              },
+                              [
+                                _c("i", { staticClass: "fa fa-trash" }),
+                                _vm._v(" Hapus\n                            "),
+                              ]
+                            ),
+                          ])
+                        : _vm._e(),
+                    ]
                   },
-                  [
-                    _c(
-                      "span",
-                      {
-                        staticClass: "badge badge-danger pointer",
-                        on: {
-                          click: function ($event) {
-                            return _vm.massDeleteGuru()
-                          },
-                        },
-                      },
-                      [
-                        _c("i", { staticClass: "fa fa-trash" }),
-                        _vm._v(" Hapus Masal Guru\n                        "),
-                      ]
-                    ),
-                  ]
-                ),
-              ]
-            ),
+                },
+              ]),
+            }),
           ],
           1
         ),
@@ -634,19 +521,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "float-end" }, [
-      _c("button", { staticClass: "btn btn-primary" }, [
-        _c("i", { staticClass: "fa fa-plus" }),
-        _vm._v(" Tambah Guru\n                "),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

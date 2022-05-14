@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[924],{2924:(e,l,n)=>{n.r(l),n.d(l,{default:()=>s});const t={};const s=(0,n(1900).Z)(t,(function(){var e=this,l=e.$createElement;return(e._self._c||l)("div",[e._v("\n  Detail Rombel\n")])}),[],!1,null,null,null).exports}}]);

@@ -36,6 +36,64 @@ let admin_router = {
             ]
         },
         {
+            path: "rombel/",
+            component: () => import("@/pages/Blank"),
+            meta: {
+                requiresAuth: true
+            },
+            children: [
+                {
+                    path: "index",
+                    name: "admin.rombel.index",
+                    component: () => import("@/pages/admin/rombel/Index"),
+                },
+                {
+                    path: "detail/:rombel_id",
+                    name: "admin.rombel.detail",
+                    component: () => import("@/pages/admin/rombel/Detail"),
+                },
+                {
+                    path: "edit/:rombel_id",
+                    name: "admin.rombel.detail",
+                    component: () => import("@/pages/admin/rombel/Detail"),
+                },
+                {
+                    path: "add",
+                    name: "admin.rombel.add",
+                    component: () => import("@/pages/admin/rombel/Add"),
+                },
+            ]
+        },
+        {
+            path: "prodi/",
+            component: () => import("@/pages/Blank"),
+            meta: {
+                requiresAuth: true
+            },
+            children: [
+                {
+                    path: "index",
+                    name: "admin.prodi.index",
+                    component: () => import("@/pages/admin/prodi/Index"),
+                },
+                {
+                    path: "detail/:prodi_id",
+                    name: "admin.prodi.detail",
+                    component: () => import("@/pages/admin/prodi/Detail"),
+                },
+                {
+                    path: "edit/:prodi_id",
+                    name: "admin.prodi.detail",
+                    component: () => import("@/pages/admin/prodi/Detail"),
+                },
+                {
+                    path: "add",
+                    name: "admin.prodi.add",
+                    component: () => import("@/pages/admin/prodi/Add"),
+                },
+            ]
+            },
+        {
             path: "guru/",
             component: () => import("@/pages/Blank"),
             meta: {
@@ -89,6 +147,11 @@ let admin_router = {
                     path: "detail/:instansi_id",
                     name: "admin.instansi.detail",
                     component: () => import("@/pages/admin/instansi/Detail"),
+                },
+                {
+                    path: "add",
+                    name: "admin.instansi.add",
+                    component: () => import("@/pages/admin/instansi/Add"),
                 },
             ]
         },

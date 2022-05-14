@@ -15,4 +15,11 @@ class Data
             'konghucu'
         ];
     }
+    public static function getKelamin()
+    {
+        return [
+            'l',
+            'p',
+        ];
+    }
 }

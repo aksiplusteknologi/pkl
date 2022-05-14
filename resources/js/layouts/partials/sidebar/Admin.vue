@@ -53,6 +53,16 @@
                     <span>Instansi</span>
                 </router-link>
             </li>
+            <li class="nav-item" :class="{ 'menuitem-active': subIsActive('/admin_area/prodi') }">
+                <router-link
+                    class="nav-link"
+                    :class="{ 'active': subIsActive('/admin_area/prodi') }"
+                    :to="{ name: 'admin.prodi.index' }"
+                >
+                    <i class="fa fa-university menu-icon"></i>
+                    <span>Prodi / Jurusan</span>
+                </router-link>
+            </li>
             <li class="nav-item" :class="{ 'menuitem-active': subIsActive('/admin_area/siswa') }">
                 <router-link
                     class="nav-link"
@@ -61,6 +71,16 @@
                 >
                     <i class="ti ti-user menu-icon"></i>
                     <span>Siswa</span>
+                </router-link>
+            </li>
+            <li class="nav-item" :class="{ 'menuitem-active': subIsActive('/admin_area/rombel') }">
+                <router-link
+                    class="nav-link"
+                    :class="{ 'active': subIsActive('/admin_area/rombel') }"
+                    :to="{ name: 'admin.rombel.index' }"
+                >
+                    <i class="fa fa-building menu-icon"></i>
+                    <span>Rombongan Belajar</span>
                 </router-link>
             </li>
             <li class="nav-item" :class="{ 'menuitem-active': subIsActive('/admin_area/guru') }">

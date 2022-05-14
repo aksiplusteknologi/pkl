@@ -3,15 +3,15 @@
         <div class="card">
             <div class="card-header">
                 <div class="float-start">
-                    <h4 class="card-title">Manajemen Data Guru / Pembimbing Sekolah</h4>
+                    <h4 class="card-title">Manajemen Instansi / Perusahaan</h4>
                     <p
                         class="text-muted mb-0"
-                    >Menampilkan {{ table.rows.length }} Data Pelaksanaan Praktek Kerja Lapangan</p>
+                    >Menampilkan {{ table.rows.length }} Data Instansi / Perusahaan</p>
                 </div>
                 <div class="float-end">
-                    <button class="btn btn-primary">
-                        <i class="fa fa-plus"></i> Tambah Guru
-                    </button>
+                    <router-link :to="{ name: 'admin.instansi.add' }" class="btn btn-primary">
+                        <i class="fa fa-plus"></i> Tambah Instansi
+                    </router-link>
                 </div>
             </div>
             <!--end card-header-->
@@ -55,11 +55,6 @@
                         This will show up on the top right of the table. 
                         </div>-->
 
-                        <div slot="selected-row-actions">
-                            <span v-on:click="massDeleteGuru()" class="badge badge-danger pointer">
-                                <i class="fa fa-trash"></i> Hapus Masal Guru
-                            </span>
-                        </div>
 
                         <template
                             slot="table-row"
@@ -67,49 +62,15 @@
                             :doc_due_date="doc_due_date"
                             slot-scope="props"
                         >
-                            <span v-if="props.column.field == 'nuptk'">
-                                {{
-                                props.row.nuptk
-                                }}
-                            </span>
-                            <span v-if="props.column.field == 'nama'">
-                                <router-link
-                                    :to="{
-                                        name: 'admin.guru.detail',
-                                        params: { guru_id: props.row.id }
-                                    }"
-                                    data-toggle="tooltip"
-                                    data-placement="top"
-                                    :title="
-                                        'Klik Untuk Melihat Detail ' +
-                                            props.row.nama
-                                    "
-                                >{{ props.row.nama }}</router-link>
-                            </span>
-                            <span v-if="props.column.field == 'jenis_kelamin'">
-                                <span
-                                    class="badge bg-success"
-                                    v-if="props.row.jenis_kelamin == 'l'"
-                                >
-                                    <i class="fa fa-mars"></i> L
-                                </span>
-                                <span class="badge bg-danger" v-else>
-                                    <i class="fa fa-venus"></i> P
-                                </span>
-                            </span>
-                            <span v-if="props.column.field == 'ttl'">
-                                <i>{{ props.row.tempat_lahir }}</i>
-                                , {{ props.row.tanggal_lahir | indoDate }}
-                            </span>
                             <span v-if="props.column.field == 'aksi'">
                                 <span
-                                    @click="editGuru(props.row.id)"
+                                    @click="editInstansi(props.row)"
                                     class="pointer badge bg-warning"
                                 >
                                     <i class="fa fa-wrench"></i> Edit
                                 </span>
                                 <span
-                                    v-on:click="deleteGuru(props.row.id)"
+                                    v-on:click="deleteInstansi(props.row)"
                                     class="pointer badge bg-danger pointer"
                                 >
                                     <i class="fa fa-trash"></i> Hapus
@@ -140,23 +101,19 @@ export default {
             rows: [],
             columns: [
                 {
-                    label: "NUPTK",
-                    field: "nuptk",
-                },
-                {
-                    label: "Nama Guru",
+                    label: "Nama Instansi / Perusahaan",
                     field: "nama",
                     sortable: true,
                 },
                 {
-                    label: "JK",
-                    field: "jenis_kelamin",
+                    label: "Status Kepemilikan",
+                    field: "status_kepemilikan",
                     sortable: true,
                 },
                 {
-                    label: "TTL",
-                    field: "ttl",
-                    sortable: false,
+                    label: "Jenis Perusahaan",
+                    field: "jenis_perusahaan",
+                    sortable: true,
                 },
                 {
                     label: "",
@@ -182,9 +139,28 @@ export default {
         initData: function () {
             let params = this.table.serverParams;
 
-            axios.get("/api/admin/guru", { params }).then((res) => {
+            axios.get("/api/admin/instansi", { params }).then((res) => {
                 this.table.rows = res.data.data;
                 this.table.totalRows = res.data.total;
+            });
+        },
+
+        deleteInstansi: function(instansi) {
+            swal({
+                title: "Anda akan menghapus Data Instansi " + instansi.nama,
+                text: "Lanjutkan?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: false
+            }).then(value => {
+                    if (value) {
+                        axios
+                        .delete("/api/admin/instansi/" + instansi.id)
+                        .then(res => {
+                                toastr.success(res.data.message, "Berhasil!!")
+                                this.initData()
+                        });
+                }
             });
         },
         // Datatable Methods

@@ -10,6 +10,7 @@ window.Vue = require('vue').default;
 
 Vue.component('main-layout', require('@/layouts/Main.vue').default);
 Vue.component('Header', require('@/layouts/partials/Header.vue').default);
+Vue.component('Required', require('@/layouts/partials/Required.vue').default);
 
 Vue.use(VueGoodTablePlugin);
 

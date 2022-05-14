@@ -14,7 +14,9 @@ class SekolahSeeder extends Seeder
      */
     public function run()
     {
-        $setting = Sekolah::firstOrNew(['id' => 1]);
+        Sekolah::truncate();
+
+        $setting = new Sekolah;
         $setting->tahun_ajaran = '2021/2022';
         $setting->nama_sekolah = 'SMK Darussalam Tarogong Kaler';
         $setting->npsn = '69858460';

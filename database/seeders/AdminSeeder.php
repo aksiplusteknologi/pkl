@@ -15,12 +15,12 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::where('username', '1406019')->first();
+        $user = User::where('username', 'admin')->first();
 
         if (!$user) {
             $user = new User;
-            $user->username = '1406019';
-            $user->password = bcrypt('1406019');
+            $user->username = 'admin';
+            $user->password = bcrypt('admin');
             $user->is_active = 'y';
             $user->user_type = 'admin';
 

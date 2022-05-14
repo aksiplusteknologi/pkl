@@ -5,19 +5,10 @@
             <div class="brand">
                 <a href="index.html" class="logo">
                     <span>
-                        <img src="/assets/images/logo-sm.png" alt="logo-small" class="logo-sm" />
+                        <img src="/images/logo_sekolah.png" alt="logo-small" class="logo-sm" />
                     </span>
-                    <span>
-                        <img
-                            src="/assets/images/logo.png"
-                            alt="logo-large"
-                            class="logo-lg logo-light"
-                        />
-                        <img
-                            src="/assets/images/logo-dark.png"
-                            alt="logo-large"
-                            class="logo-lg logo-dark"
-                        />
+                    <span style="color: white">
+                        SMK Darussalam Tarogong Kaler
                     </span>
                 </a>
             </div>

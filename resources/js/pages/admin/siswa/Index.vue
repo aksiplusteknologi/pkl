@@ -3,14 +3,14 @@
         <div class="card">
             <div class="card-header">
                 <div class="float-start">
-                    <h4 class="card-title">Manajemen Data Guru / Pembimbing Sekolah</h4>
+                    <h4 class="card-title">Manajemen Data Siswa / Peserta PKL</h4>
                     <p
                         class="text-muted mb-0"
-                    >Menampilkan {{ table.rows.length }} Data Pelaksanaan Praktek Kerja Lapangan</p>
+                    >Menampilkan {{ table.rows.length }} Data Siswa / Peserta PKL</p>
                 </div>
                 <div class="float-end">
                     <button class="btn btn-primary">
-                        <i class="fa fa-plus"></i> Tambah Guru
+                        <i class="fa fa-plus"></i> Tambah Siswa
                     </button>
                 </div>
             </div>
@@ -55,11 +55,6 @@
                         This will show up on the top right of the table. 
                         </div>-->
 
-                        <div slot="selected-row-actions">
-                            <span v-on:click="massDeleteGuru()" class="badge badge-danger pointer">
-                                <i class="fa fa-trash"></i> Hapus Masal Guru
-                            </span>
-                        </div>
 
                         <template
                             slot="table-row"
@@ -67,16 +62,16 @@
                             :doc_due_date="doc_due_date"
                             slot-scope="props"
                         >
-                            <span v-if="props.column.field == 'nuptk'">
+                            <span v-if="props.column.field == 'nisn'">
                                 {{
-                                props.row.nuptk
+                                props.row.nisn
                                 }}
                             </span>
                             <span v-if="props.column.field == 'nama'">
                                 <router-link
                                     :to="{
-                                        name: 'admin.guru.detail',
-                                        params: { guru_id: props.row.id }
+                                        name: 'admin.siswa.detail',
+                                        params: { siswa_id: props.row.id }
                                     }"
                                     data-toggle="tooltip"
                                     data-placement="top"
@@ -97,19 +92,23 @@
                                     <i class="fa fa-venus"></i> P
                                 </span>
                             </span>
+                            
+                            <span v-if="props.column.field == 'rombel'">
+                                {{ props.row.rombel.nama }}
+                            </span>
                             <span v-if="props.column.field == 'ttl'">
                                 <i>{{ props.row.tempat_lahir }}</i>
                                 , {{ props.row.tanggal_lahir | indoDate }}
                             </span>
                             <span v-if="props.column.field == 'aksi'">
                                 <span
-                                    @click="editGuru(props.row.id)"
+                                    @click="editsiswa(props.row.id)"
                                     class="pointer badge bg-warning"
                                 >
                                     <i class="fa fa-wrench"></i> Edit
                                 </span>
                                 <span
-                                    v-on:click="deleteGuru(props.row.id)"
+                                    v-on:click="deletesiswa(props.row.id)"
                                     class="pointer badge bg-danger pointer"
                                 >
                                     <i class="fa fa-trash"></i> Hapus
@@ -140,13 +139,18 @@ export default {
             rows: [],
             columns: [
                 {
-                    label: "NUPTK",
-                    field: "nuptk",
+                    label: "NISN",
+                    field: "nisn",
                 },
                 {
-                    label: "Nama Guru",
+                    label: "Nama Siswa/i",
                     field: "nama",
                     sortable: true,
+                },
+                {
+                    label: "Kelas",
+                    field: "rombel",
+                    sortable: false,
                 },
                 {
                     label: "JK",
@@ -182,7 +186,7 @@ export default {
         initData: function () {
             let params = this.table.serverParams;
 
-            axios.get("/api/admin/guru", { params }).then((res) => {
+            axios.get("/api/admin/siswa", { params }).then((res) => {
                 this.table.rows = res.data.data;
                 this.table.totalRows = res.data.total;
             });
@@ -196,13 +200,13 @@ export default {
         resetFilter: function () {
             this.table.serverParams.manual_filter = 0;
 
-            // Set Prodi Options
-            let data = this.prodi;
+            // Set rombel Options
+            let data = this.rombel;
             let arr = data.map((a) => a.id);
 
-            this.table.serverParams.prodi = arr;
+            this.table.serverParams.rombel = arr;
 
-            // End Set Prodi
+            // End Set rombel
             (this.table.serverParams.tingkat = ["X", "XI", "XII"]),
                 (this.table.serverParams.jenis_kelamin = ["l", "p"]),
                 (this.table.serverParams.searchTerm = "");
@@ -259,16 +263,6 @@ export default {
             // this.updateParams(params)
             let new_params = {
                 page: 1,
-                col_ac_reg: col_filter.ac_reg,
-                col_ac_type: col_filter.ac_type,
-                col_ams: col_filter.col_ams_text,
-                col_customer: col_filter.customer,
-                col_main_type: col_filter.main_type,
-                col_status: col_filter.status,
-                col_level: col_filter.lvl,
-                col_gsmart_id: col_filter.gsmart_id,
-                col_report: col_filter.report,
-                col_flag: col_filter.flag,
                 // new
             };
             this.updateParams(new_params);
