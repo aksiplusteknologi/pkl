@@ -39,6 +39,11 @@ class Siswa extends Model
     //     return 'PKL';
     // }
 
+    public function prakerin()
+    {
+        return $this->belongsToMany(PKL::class, 'instansi_siswa', 'siswa_id', 'pkl_id')->withPivot(['instansi_id', 'status']);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -46,6 +51,6 @@ class Siswa extends Model
 
     public function getPklAttribute()
     {
-        return 'ok';
+        return InstansiSiswa::with(['instansi', 'pkl'])->where('siswa_id', $this->id)->first();
     }
 }

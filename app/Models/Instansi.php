@@ -11,6 +11,10 @@ class Instansi extends Model
 
     protected $table = 'instansi';
 
+    protected $attributes = [
+        'show_pkl',
+    ];
+
     protected $fillable = [
         'jenis_perusahaan',
         'status_kepemilikan',
@@ -20,4 +24,18 @@ class Instansi extends Model
         'latitude',
         'longitude',
     ];
+
+    public function siswa()
+    {
+        return $this->belongsToMany(Siswa::class, 'instansi_siswa',);
+    }
+
+    public function pkl()
+    {
+        return $this->belongsToMany(Siswa::class, 'instansi_siswa', 'pkl_id');
+    }
+    public function getShowPklAttribute()
+    {
+        return PKL::where('instansi_id', $this->id)->distinct()->groupBy('tahun_ajaran')->get();
+    }
 }

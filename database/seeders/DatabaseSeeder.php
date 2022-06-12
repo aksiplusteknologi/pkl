@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             PKLSeeder::class,
             SiswaSeeder::class,
             InstansiSeeder::class,
+            InstansiSiswaSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
     }

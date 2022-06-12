@@ -16,7 +16,8 @@ class PKLController extends Controller
      */
     public function index(Request $request)
     {
-        $datas = PKL::with(['guru']);
+        $datas = PKL::with(['guru', 'instansi'])->withCount(['siswa']);
+
 
         if ($request->searchTerm) {
             $escaped_str = "%$request->searchTerm%";
@@ -58,9 +59,9 @@ class PKLController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($tahun_ajaran)
+    public function show($id)
     {
-        $pkl = PKL::where('tahun_ajaran', $tahun_ajaran)->first();
+        $pkl = PKL::with(['guru', 'siswa', 'instansi'])->find($id);
 
         return response()->json($pkl);
     }

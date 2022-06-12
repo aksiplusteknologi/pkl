@@ -69,8 +69,8 @@
                                     >Aktif</span>
                                 </router-link>
                             </span>
-                            <span v-if="props.column.field == 'siswa_count'">{{ 12 }}</span>
-                            <span v-if="props.column.field == 'instansi_count'">{{ 12 }}</span>
+                            <span v-if="props.column.field == 'siswa_count'">{{ props.row.siswa_count }}</span>
+                            <span v-if="props.column.field == 'instansi_count'">{{ props.row.instansi.length }}</span>
                             <span
                                 v-if="props.column.field == 'ketua_pelaksana'"
                             >{{ props.row.guru.nama }}</span>
@@ -173,7 +173,8 @@ export default {
         },
 
         detail: function (data) {
-            console.log("Data => ", data);
+            this.$router.push({'name': 'admin.pkl.detail', params: {pkl_id: data.id}})
+            console.log("Datsa => ", data);
         },
 
         // Datatable Methods

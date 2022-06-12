@@ -15,7 +15,80 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      pkl: {
+        instansi: [],
+        siswa: [],
+        guru: {
+          nama: '',
+          nuptk: ''
+        }
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.initData();
+  },
+  methods: {
+    initData: function initData() {
+      var _this = this;
+
+      axios.get("/api/admin/pkl/".concat(this.$route.params.pkl_id)).then(function (res) {
+        _this.pkl = res.data;
+      })["catch"](function (error) {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+
+        console.error("Error => " + error);
+      }).then(function () {
+        console.log('always executed');
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -103,7 +176,91 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v(_vm._s(_vm.$route.params.pkl_id))])
+  return _c("div", [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-4" },
+        [
+          _c("div", { staticClass: "card shadow mb-2" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _c(
+                  "p",
+                  {
+                    staticClass: "mb-0",
+                    staticStyle: { "font-weight": "bold" },
+                  },
+                  [
+                    _vm._v(
+                      "\n                            Perusahaan / Instansi (" +
+                        _vm._s(_vm.pkl.instansi.length) +
+                        " data)\n                        "
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("span", { staticClass: "mt-0" }, [
+                  _vm._v("Pilih Salah Satu Perusahaan"),
+                ]),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.pkl.instansi, function (instansi) {
+            return _c("div", { key: instansi.id }, [
+              _c("div", { staticClass: "card shadow" }, [
+                _c("div", { staticClass: "card-body" }, [
+                  _c("h4", { staticClass: "mb-0" }, [
+                    _vm._v(
+                      "\n                                " +
+                        _vm._s(instansi.nama) +
+                        "\n                            "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "mt-0 mb-0" }, [
+                    _vm._v(
+                      "Status Kepemilikan : " +
+                        _vm._s(instansi.status_kepemilikan.toUpperCase())
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "mt-0 mb-0" }, [
+                    _vm._v(
+                      "Jenis Perusahaan : " +
+                        _vm._s(instansi.status_kepemilikan.toUpperCase())
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "mt-0 mb-0" }, [
+                    _vm._v(
+                      "Deskripsi : " +
+                        _vm._s(instansi.deskripsi ? instansi.deskripsi : "")
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "mt-0 mb-0" }, [
+                    _vm._v(
+                      "Alamat : " +
+                        _vm._s(instansi.alamat ? instansi.alamat : "")
+                    ),
+                  ]),
+                ]),
+              ]),
+            ])
+          }),
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4" }),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

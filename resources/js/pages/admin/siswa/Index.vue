@@ -81,6 +81,20 @@
                                     "
                                 >{{ props.row.nama }}</router-link>
                             </span>
+                            <span v-if="props.column.field == 'pkl'">
+                                <span v-if="props.row.pkl">
+                                    <strong><i>{{ props.row.pkl.instansi.nama }}</i></strong>
+                                    <br>
+                                    <span class="badge" v-bind:class="{
+                                        'bg-primary': props.row.pkl.status == 'berlangsung',
+                                        'bg-danger': props.row.pkl.status == 'batal',
+                                        'bg-success': props.row.pkl.status == 'selesai',
+                                    }">
+                                        {{ props.row.pkl.pkl.status.toUpperCase() }}
+                                    </span>
+                                </span>
+                                <span v-else class="badge bg-warning">Belum PKL</span>
+                            </span>
                             <span v-if="props.column.field == 'jenis_kelamin'">
                                 <span
                                     class="badge bg-success"
@@ -150,6 +164,11 @@ export default {
                 {
                     label: "Kelas",
                     field: "rombel",
+                    sortable: false,
+                },
+                {
+                    label: "Status PKL",
+                    field: "pkl",
                     sortable: false,
                 },
                 {

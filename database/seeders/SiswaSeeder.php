@@ -19,10 +19,8 @@ class SiswaSeeder extends Seeder
         // Init Faker
         $faker = Faker::create('id_ID');
 
-        // User Seeder for Admin
-        $start = 1;
 
-        for ($i = 1; $i <= 60; $i++) {
+        for ($i = 1; $i <= 640; $i++) {
 
             $nis = date('Y') . $i;
             $user = new User;

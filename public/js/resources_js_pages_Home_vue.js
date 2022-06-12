@@ -11,176 +11,263 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _components_Map_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Map.vue */ "./resources/js/layouts/partials/dashboard/components/Map.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Map: _components_Map_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      sekolah: {},
+      instansi: [{
+        nama: "PT. Mobidu",
+        data: "Ok",
+        latlang: [-7.208959547325653, 107.91041544191225]
+      }, {
+        nama: "PT Jaya Abadi",
+        data: "Ok",
+        latlang: [-7.211003195586779, 107.91608026713703]
+      }, {
+        nama: "Kerkoff",
+        data: "Ok",
+        latlang: [-7.205894057646849, 107.90337732572387]
+      }, {
+        nama: "Nurhayati",
+        data: "Ok",
+        latlang: [-7.21645287918694, 107.92140176962093]
+      }, {
+        nama: "RSUD Slamet",
+        data: "Ok",
+        latlang: [-7.218666794404613, 107.89702585501728]
+      }]
+    };
+  },
+  mounted: function mounted() {
+    this.getSekolah();
+  },
+  methods: {
+    getSekolah: function getSekolah() {
+      var _this = this;
+
+      axios.get("/api/pub/sekolah").then(function (res) {
+        _this.sekolah = res.data;
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var leaflet_dist_leaflet_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! leaflet/dist/leaflet.css */ "./node_modules/leaflet/dist/leaflet.css");
-/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMap.js");
-/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LTileLayer.js");
-/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMarker.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LIcon.js");
+/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMap.js");
+/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LTileLayer.js");
+/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMarker.js");
 //
 //
 //
@@ -230,57 +317,36 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['instansi'],
   components: {
+    LIcon: vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__["default"],
     icon: leaflet__WEBPACK_IMPORTED_MODULE_0__.icon,
-    LMap: vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__["default"],
-    LTileLayer: vue2_leaflet__WEBPACK_IMPORTED_MODULE_3__["default"],
-    LMarker: vue2_leaflet__WEBPACK_IMPORTED_MODULE_4__["default"]
+    LMap: vue2_leaflet__WEBPACK_IMPORTED_MODULE_3__["default"],
+    LTileLayer: vue2_leaflet__WEBPACK_IMPORTED_MODULE_4__["default"],
+    LMarker: vue2_leaflet__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   data: function data() {
     return {
-      sekolah: {},
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      attribution: "",
+      attribution: "123",
       zoom: 14,
       center: [-7.210662588321085, 107.90741136800098],
-      icon: (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.icon)({
-        iconUrl: "https://cdn-icons-png.flaticon.com/512/1119/1119071.png",
-        iconSize: [32, 37],
-        iconAnchor: [16, 37]
-      }),
-      instansi: [{
-        nama: "PT. Mobidu",
-        data: "Ok",
-        latlang: [-7.208959547325653, 107.91041544191225]
-      }, {
-        nama: "PT Jaya Abadi",
-        data: "Ok",
-        latlang: [-7.211003195586779, 107.91608026713703]
-      }, {
-        nama: "Kerkoff",
-        data: "Ok",
-        latlang: [-7.205894057646849, 107.90337732572387]
-      }, {
-        nama: "Nurhayati",
-        data: "Ok",
-        latlang: [-7.21645287918694, 107.92140176962093]
-      }, {
-        nama: "RSUD Slamet",
-        data: "Ok",
-        latlang: [-7.218666794404613, 107.89702585501728]
-      }]
+      selected_instansi: {}
     };
   },
-  mounted: function mounted() {
-    this.getSekolah();
+  computed: {
+    dynamicSize: function dynamicSize() {
+      return [this.iconSize, this.iconSize * 1.15];
+    },
+    dynamicAnchor: function dynamicAnchor() {
+      return [this.iconSize / 2, this.iconSize * 1.15];
+    }
   },
   methods: {
-    getSekolah: function getSekolah() {
-      var _this = this;
-
-      axios.get("/api/pub/sekolah").then(function (res) {
-        _this.sekolah = res.data;
-      });
+    detailInstansi: function detailInstansi(instansi) {
+      this.selected_instansi = instansi;
+      console.log(instansi);
+      $('#detailInstansi').modal('show');
     }
   }
 });
@@ -14591,6 +14657,45 @@ component.options.__file = "resources/js/layouts/partials/dashboard/Admin.vue"
 
 /***/ }),
 
+/***/ "./resources/js/layouts/partials/dashboard/components/Map.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/layouts/partials/dashboard/components/Map.vue ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Map_vue_vue_type_template_id_23fbeae7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Map.vue?vue&type=template&id=23fbeae7& */ "./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=template&id=23fbeae7&");
+/* harmony import */ var _Map_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Map.vue?vue&type=script&lang=js& */ "./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Map_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Map_vue_vue_type_template_id_23fbeae7___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Map_vue_vue_type_template_id_23fbeae7___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/layouts/partials/dashboard/components/Map.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/pages/Home.vue":
 /*!*************************************!*\
   !*** ./resources/js/pages/Home.vue ***!
@@ -14646,6 +14751,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Map_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Map.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Map_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/pages/Home.vue?vue&type=script&lang=js&":
 /*!**************************************************************!*\
   !*** ./resources/js/pages/Home.vue?vue&type=script&lang=js& ***!
@@ -14675,6 +14796,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Admin_vue_vue_type_template_id_51eb0c8a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Admin_vue_vue_type_template_id_51eb0c8a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Admin.vue?vue&type=template&id=51eb0c8a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/Admin.vue?vue&type=template&id=51eb0c8a&");
+
+
+/***/ }),
+
+/***/ "./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=template&id=23fbeae7&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=template&id=23fbeae7& ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Map_vue_vue_type_template_id_23fbeae7___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Map_vue_vue_type_template_id_23fbeae7___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Map_vue_vue_type_template_id_23fbeae7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Map.vue?vue&type=template&id=23fbeae7& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=template&id=23fbeae7&");
 
 
 /***/ }),
@@ -14875,54 +15013,7 @@ var render = function () {
           _c(
             "div",
             { staticClass: "card-body" },
-            [
-              _c(
-                "l-map",
-                {
-                  staticStyle: {
-                    "border-radius": "9px",
-                    "min-height": "300px",
-                  },
-                  attrs: { zoom: _vm.zoom, center: _vm.center },
-                },
-                [
-                  _c("l-tile-layer", {
-                    attrs: { url: _vm.url, attribution: _vm.attribution },
-                  }),
-                  _vm._v(" "),
-                  _vm._l(_vm.instansi, function (i, index) {
-                    return _c(
-                      "l-marker",
-                      { key: index, attrs: { "lat-lng": i.latlang } },
-                      [
-                        _c(
-                          "icon",
-                          {
-                            attrs: {
-                              "icon-anchor": [16, 37],
-                              "class-name": "someExtraClass",
-                            },
-                          },
-                          [
-                            _c("div", { staticClass: "headline" }, [
-                              _vm._v(_vm._s("Foobar")),
-                            ]),
-                            _vm._v(" "),
-                            _c("img", {
-                              attrs: {
-                                src: "https://cdn-icons-png.flaticon.com/512/1119/1119071.png",
-                              },
-                            }),
-                          ]
-                        ),
-                      ],
-                      1
-                    )
-                  }),
-                ],
-                2
-              ),
-            ],
+            [_c("Map", { attrs: { instansi: _vm.instansi } })],
             1
           ),
           _vm._v(" "),
@@ -15095,6 +15186,141 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=template&id=23fbeae7&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=template&id=23fbeae7& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "l-map",
+        {
+          staticStyle: { "border-radius": "9px", "min-height": "300px" },
+          attrs: { zoom: _vm.zoom, center: _vm.center },
+        },
+        [
+          _c("l-tile-layer", {
+            attrs: { url: _vm.url, attribution: _vm.attribution },
+          }),
+          _vm._v(" "),
+          _vm._l(_vm.instansi, function (i, index) {
+            return _c(
+              "l-marker",
+              {
+                key: index,
+                attrs: { "lat-lng": i.latlang },
+                on: {
+                  click: function ($event) {
+                    return _vm.detailInstansi(i)
+                  },
+                },
+              },
+              [
+                _c("l-icon", {
+                  attrs: {
+                    "icon-size": _vm.dynamicSize,
+                    "icon-anchor": _vm.dynamicAnchor,
+                    "icon-url":
+                      "https://w7.pngwing.com/pngs/236/41/png-transparent-illustration-of-map-icon-google-map-maker-google-maps-computer-icons-map-marker-text-heart-logo-thumbnail.png",
+                  },
+                }),
+              ],
+              1
+            )
+          }),
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _vm._m(0),
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "detailInstansi",
+          tabindex: "-1",
+          "aria-labelledby": "detailInstansiLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _c("div", { staticClass: "modal-header" }, [
+              _c(
+                "h5",
+                {
+                  staticClass: "modal-title",
+                  attrs: { id: "detailInstansiLabel" },
+                },
+                [_vm._v("Modal title")]
+              ),
+              _vm._v(" "),
+              _c("button", {
+                staticClass: "btn-close",
+                attrs: {
+                  type: "button",
+                  "data-bs-dismiss": "modal",
+                  "aria-label": "Close",
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _vm._v("\n                  ...\n              "),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Tutup")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    )
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Home.vue?vue&type=template&id=b3c5cf30&":
 /*!***********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Home.vue?vue&type=template&id=b3c5cf30& ***!
@@ -15120,6 +15346,468 @@ var render = function () {
 var staticRenderFns = []
 render._withStripped = true
 
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LIcon.js":
+/*!************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LIcon.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+//
+
+/**
+ * Easy and reactive way to configure the icon of a marker
+ */
+var script = {
+  name: 'LIcon',
+  props: {
+    iconUrl: {
+      type: String,
+      custom: true,
+      default: null,
+    },
+    iconRetinaUrl: {
+      type: String,
+      custom: true,
+      default: null,
+    },
+    iconSize: {
+      type: [Object, Array],
+      custom: true,
+      default: null,
+    },
+    iconAnchor: {
+      type: [Object, Array],
+      custom: true,
+      default: null,
+    },
+    popupAnchor: {
+      type: [Object, Array],
+      custom: true,
+      default: function () { return [0, 0]; },
+    },
+    tooltipAnchor: {
+      type: [Object, Array],
+      custom: true,
+      default: function () { return [0, 0]; },
+    },
+    shadowUrl: {
+      type: String,
+      custom: true,
+      default: null,
+    },
+    shadowRetinaUrl: {
+      type: String,
+      custom: true,
+      default: null,
+    },
+    shadowSize: {
+      type: [Object, Array],
+      custom: true,
+      default: null,
+    },
+    shadowAnchor: {
+      type: [Object, Array],
+      custom: true,
+      default: null,
+    },
+    bgPos: {
+      type: [Object, Array],
+      custom: true,
+      default: function () { return [0, 0]; },
+    },
+    className: {
+      type: String,
+      custom: true,
+      default: '',
+    },
+    options: {
+      type: Object,
+      custom: true,
+      default: function () { return ({}); },
+    },
+  },
+
+  data: function data() {
+    return {
+      parentContainer: null,
+      observer: null,
+      recreationNeeded: false,
+      swapHtmlNeeded: false,
+    };
+  },
+
+  mounted: function mounted() {
+    var this$1 = this;
+
+    this.parentContainer = findRealParent(this.$parent);
+    if (!this.parentContainer) {
+      throw new Error('No parent container with mapObject found for LIcon');
+    }
+    propsBinder(this, this.parentContainer.mapObject, this.$options.props);
+
+    this.observer = new MutationObserver(function () {
+      this$1.scheduleHtmlSwap();
+    });
+    this.observer.observe(this.$el, {
+      attributes: true,
+      childList: true,
+      characterData: true,
+      subtree: true,
+    });
+    this.scheduleCreateIcon();
+  },
+
+  beforeDestroy: function beforeDestroy() {
+    if (this.parentContainer.mapObject) {
+      this.parentContainer.mapObject.setIcon(this.parentContainer.$props.icon);
+    }
+
+    this.observer.disconnect();
+  },
+
+  methods: {
+    scheduleCreateIcon: function scheduleCreateIcon() {
+      this.recreationNeeded = true;
+
+      this.$nextTick(this.createIcon);
+    },
+
+    scheduleHtmlSwap: function scheduleHtmlSwap() {
+      this.htmlSwapNeeded = true;
+
+      this.$nextTick(this.createIcon);
+    },
+
+    createIcon: function createIcon() {
+      // If only html of a divIcon changed, we can just replace the DOM without the need of recreating the whole icon
+      if (
+        this.htmlSwapNeeded &&
+        !this.recreationNeeded &&
+        this.iconObject &&
+        this.parentContainer.mapObject.getElement()
+      ) {
+        this.parentContainer.mapObject.getElement().innerHTML = this.$el.innerHTML;
+
+        this.htmlSwapNeeded = false;
+        return;
+      }
+
+      if (!this.recreationNeeded) {
+        return;
+      }
+
+      if (this.iconObject) {
+        leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.off(this.iconObject, this.$listeners);
+      }
+
+      var options = optionsMerger(
+        {
+          iconUrl: this.iconUrl,
+          iconRetinaUrl: this.iconRetinaUrl,
+          iconSize: this.iconSize,
+          iconAnchor: this.iconAnchor,
+          popupAnchor: this.popupAnchor,
+          tooltipAnchor: this.tooltipAnchor,
+          shadowUrl: this.shadowUrl,
+          shadowRetinaUrl: this.shadowRetinaUrl,
+          shadowSize: this.shadowSize,
+          shadowAnchor: this.shadowAnchor,
+          bgPos: this.bgPos,
+          className: this.className,
+          html: this.$el.innerHTML || this.html,
+        },
+        this
+      );
+
+      if (options.html) {
+        this.iconObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.divIcon)(options);
+      } else {
+        this.iconObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.icon)(options);
+      }
+
+      leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.iconObject, this.$listeners);
+
+      this.parentContainer.mapObject.setIcon(this.iconObject);
+
+      this.recreationNeeded = false;
+      this.htmlSwapNeeded = false;
+    },
+
+    setIconUrl: function setIconUrl() {
+      this.scheduleCreateIcon();
+    },
+    setIconRetinaUrl: function setIconRetinaUrl() {
+      this.scheduleCreateIcon();
+    },
+    setIconSize: function setIconSize() {
+      this.scheduleCreateIcon();
+    },
+    setIconAnchor: function setIconAnchor() {
+      this.scheduleCreateIcon();
+    },
+    setPopupAnchor: function setPopupAnchor() {
+      this.scheduleCreateIcon();
+    },
+    setTooltipAnchor: function setTooltipAnchor() {
+      this.scheduleCreateIcon();
+    },
+    setShadowUrl: function setShadowUrl() {
+      this.scheduleCreateIcon();
+    },
+    setShadowRetinaUrl: function setShadowRetinaUrl() {
+      this.scheduleCreateIcon();
+    },
+    setShadowAnchor: function setShadowAnchor() {
+      this.scheduleCreateIcon();
+    },
+    setBgPos: function setBgPos() {
+      this.scheduleCreateIcon();
+    },
+    setClassName: function setClassName() {
+      this.scheduleCreateIcon();
+    },
+    setHtml: function setHtml() {
+      this.scheduleCreateIcon();
+    },
+  },
+
+  render: function render() {
+    return null;
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._t("default")],2)};
+var __vue_staticRenderFns__ = [];
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
 
 
 /***/ }),

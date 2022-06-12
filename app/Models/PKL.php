@@ -23,4 +23,14 @@ class PKL extends Model
     {
         return $this->belongsTo(Guru::class);
     }
+
+    public function siswa()
+    {
+        return $this->belongsToMany(Siswa::class, 'instansi_siswa', 'pkl_id')->distinct();
+    }
+
+    public function instansi()
+    {
+        return $this->belongsToMany(Instansi::class, 'instansi_siswa', 'pkl_id')->distinct();
+    }
 }

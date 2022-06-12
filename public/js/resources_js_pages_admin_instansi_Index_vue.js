@@ -104,6 +104,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   filters: {
@@ -155,6 +161,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }).then(function (res) {
         _this.table.rows = res.data.data;
         _this.table.totalRows = res.data.total;
+      });
+    },
+    detailInstansi: function detailInstansi(instansi) {
+      this.$router.push({
+        name: 'admin.instansi.detail',
+        params: {
+          instansi_id: instansi.id
+        }
       });
     },
     deleteInstansi: function deleteInstansi(instansi) {
@@ -476,6 +490,22 @@ var render = function () {
                     return [
                       props.column.field == "aksi"
                         ? _c("span", [
+                            _c(
+                              "span",
+                              {
+                                staticClass: "pointer badge bg-primary",
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.detailInstansi(props.row)
+                                  },
+                                },
+                              },
+                              [
+                                _c("i", { staticClass: "fa fa-info" }),
+                                _vm._v(" Detail\n                            "),
+                              ]
+                            ),
+                            _vm._v(" "),
                             _c(
                               "span",
                               {

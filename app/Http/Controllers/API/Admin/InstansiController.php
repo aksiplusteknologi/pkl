@@ -17,7 +17,7 @@ class InstansiController extends Controller
      */
     public function index(Request $request)
     {
-        $datas = Instansi::query();
+        $datas = Instansi::withCount(['siswa']);
 
         if ($request->searchTerm) {
             $escaped_str = "%$request->searchTerm%";
@@ -29,6 +29,12 @@ class InstansiController extends Controller
 
         if ($request->sort_type != 'none' && isset($request->sort_field)) {
             $datas->orderBy($request->sort_field, $request->sort_type);
+        }
+
+        if ($request->dashboard == 'y') {
+            $datas->where('latitude', '!=', null);
+
+            return response()->json($datas->get());
         }
 
         return response()->json($datas->paginate($request->perPage));

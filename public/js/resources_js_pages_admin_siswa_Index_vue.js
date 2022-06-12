@@ -142,6 +142,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   filters: {
@@ -163,6 +177,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, {
           label: "Kelas",
           field: "rombel",
+          sortable: false
+        }, {
+          label: "Status PKL",
+          field: "pkl",
           sortable: false
         }, {
           label: "JK",
@@ -507,6 +525,52 @@ var render = function () {
                             ],
                             1
                           )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      props.column.field == "pkl"
+                        ? _c("span", [
+                            props.row.pkl
+                              ? _c("span", [
+                                  _c("strong", [
+                                    _c("i", [
+                                      _vm._v(
+                                        _vm._s(props.row.pkl.instansi.nama)
+                                      ),
+                                    ]),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("br"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "badge",
+                                      class: {
+                                        "bg-primary":
+                                          props.row.pkl.status == "berlangsung",
+                                        "bg-danger":
+                                          props.row.pkl.status == "batal",
+                                        "bg-success":
+                                          props.row.pkl.status == "selesai",
+                                      },
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                    " +
+                                          _vm._s(
+                                            props.row.pkl.pkl.status.toUpperCase()
+                                          ) +
+                                          "\n                                "
+                                      ),
+                                    ]
+                                  ),
+                                ])
+                              : _c(
+                                  "span",
+                                  { staticClass: "badge bg-warning" },
+                                  [_vm._v("Belum PKL")]
+                                ),
+                          ])
                         : _vm._e(),
                       _vm._v(" "),
                       props.column.field == "jenis_kelamin"

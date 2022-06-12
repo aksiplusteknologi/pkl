@@ -173,25 +173,7 @@
                         <br />Tahun Ajaran 2021/2022
                     </div>
                     <div class="card-body">
-                        <l-map
-                            style="border-radius: 9px; min-height: 300px"
-                            :zoom="zoom"
-                            :center="center"
-                        >
-                            <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-                            <l-marker
-                                v-for="(i, index) in instansi"
-                                :key="index"
-                                :lat-lng="i.latlang"
-                            >
-                                <icon :icon-anchor="[16, 37]" class-name="someExtraClass">
-                                    <div class="headline">{{ 'Foobar' }}</div>
-                                    <img
-                                        src="https://cdn-icons-png.flaticon.com/512/1119/1119071.png"
-                                    />
-                                </icon>
-                            </l-marker>
-                        </l-map>
+                        <Map :instansi="instansi" />
                     </div>
                     <div class="card-footer">
                         <span
@@ -208,30 +190,16 @@
 </template>
 
 <script>
-import { L, icon } from "leaflet";
-import "leaflet/dist/leaflet.css";
 
-import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
+import Map from "./components/Map.vue";
+
 export default {
     components: {
-        icon,
-        LMap,
-        LTileLayer,
-        LMarker,
+        Map
     },
 
     data: () => ({
         sekolah: {},
-
-        url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        attribution: "",
-        zoom: 14,
-        center: [-7.210662588321085, 107.90741136800098],
-        icon: icon({
-            iconUrl: "https://cdn-icons-png.flaticon.com/512/1119/1119071.png",
-            iconSize: [32, 37],
-            iconAnchor: [16, 37],
-        }),
 
         instansi: [
             {

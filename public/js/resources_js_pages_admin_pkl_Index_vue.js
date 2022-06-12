@@ -184,7 +184,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     detail: function detail(data) {
-      console.log("Data => ", data);
+      this.$router.push({
+        'name': 'admin.pkl.detail',
+        params: {
+          pkl_id: data.id
+        }
+      });
+      console.log("Datsa => ", data);
     },
     // Datatable Methods
     liveSearch: function liveSearch() {
@@ -447,11 +453,13 @@ var render = function () {
                           : _vm._e(),
                         _vm._v(" "),
                         props.column.field == "siswa_count"
-                          ? _c("span", [_vm._v(_vm._s(12))])
+                          ? _c("span", [_vm._v(_vm._s(props.row.siswa_count))])
                           : _vm._e(),
                         _vm._v(" "),
                         props.column.field == "instansi_count"
-                          ? _c("span", [_vm._v(_vm._s(12))])
+                          ? _c("span", [
+                              _vm._v(_vm._s(props.row.instansi.length)),
+                            ])
                           : _vm._e(),
                         _vm._v(" "),
                         props.column.field == "ketua_pelaksana"

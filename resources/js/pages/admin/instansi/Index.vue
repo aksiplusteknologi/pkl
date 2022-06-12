@@ -64,6 +64,12 @@
                         >
                             <span v-if="props.column.field == 'aksi'">
                                 <span
+                                    @click="detailInstansi(props.row)"
+                                    class="pointer badge bg-primary"
+                                >
+                                    <i class="fa fa-info"></i> Detail
+                                </span>
+                                <span
                                     @click="editInstansi(props.row)"
                                     class="pointer badge bg-warning"
                                 >
@@ -143,6 +149,10 @@ export default {
                 this.table.rows = res.data.data;
                 this.table.totalRows = res.data.total;
             });
+        },
+
+        detailInstansi: function(instansi) {
+            this.$router.push({ name: 'admin.instansi.detail', params: { instansi_id : instansi.id } });
         },
 
         deleteInstansi: function(instansi) {
