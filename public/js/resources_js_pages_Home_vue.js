@@ -209,6 +209,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -331,6 +332,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -348,8 +376,11 @@ __webpack_require__.r(__webpack_exports__);
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution: "123",
       zoom: 11,
-      center: [-7.210662588321085, 107.90741136800098],
-      selected_instansi: {}
+      center: [-7.172403790397669, 107.88385944491856],
+      selected_instansi: {
+        status_kepemilikan: '',
+        jenis_perusahaan: ''
+      }
     };
   },
   computed: {
@@ -365,6 +396,15 @@ __webpack_require__.r(__webpack_exports__);
       this.selected_instansi = instansi;
       console.log(instansi);
       $('#detailInstansi').modal('show');
+    },
+    goToInstansi: function goToInstansi(instansi) {
+      $('#detailInstansi').modal('hide');
+      this.$router.push({
+        name: 'admin.instansi.detail',
+        params: {
+          instansi_id: instansi.id
+        }
+      });
     }
   }
 });
@@ -15193,6 +15233,7 @@ var staticRenderFns = [
       _vm._v(
         "\n                    Peta Sebaran Lokasi Prakerin\n                    "
       ),
+      _vm._v(" "),
       _c("br"),
       _vm._v("Tahun Ajaran 2021/2022\n                "),
     ])
@@ -15262,7 +15303,145 @@ var render = function () {
         2
       ),
       _vm._v(" "),
-      _vm._m(0),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "detailInstansi",
+            tabindex: "-1",
+            "aria-labelledby": "detailInstansiLabel",
+            "aria-hidden": "true",
+          },
+        },
+        [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-2" }, [
+                    _c("img", {
+                      staticClass: "img-fluid",
+                      attrs: {
+                        src: "/assets/images/building.jpg",
+                        alt: "Logo " + _vm.selected_instansi.nama,
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-10" }, [
+                    _c("div", { staticClass: "info-list mb-1 mt-1" }, [
+                      _c("p", { staticClass: "info-header mb-0" }, [
+                        _vm._v("Nama Instansi"),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "info-content mt-0" }, [
+                        _vm._v(_vm._s(_vm.selected_instansi.nama)),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "info-list mb-1 mt-1" }, [
+                      _c("p", { staticClass: "info-header mb-0" }, [
+                        _vm._v("Alamat"),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "info-content mt-0" }, [
+                        _vm._v(_vm._s(_vm.selected_instansi.alamat)),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "info-list mb-1 mt-1" }, [
+                      _c("p", { staticClass: "info-header mb-0" }, [
+                        _vm._v("Status Kepemilikan"),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "info-content mt-0" }, [
+                        _vm._v(
+                          _vm._s(
+                            _vm.selected_instansi.status_kepemilikan.toUpperCase()
+                          )
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "info-list mb-1 mt-1" }, [
+                      _c("p", { staticClass: "info-header mb-0" }, [
+                        _vm._v("Jenis Perusahaan"),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "info-content mt-0" }, [
+                        _vm._v(
+                          _vm._s(
+                            _vm.selected_instansi.jenis_perusahaan.toUpperCase()
+                          )
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "info-list mb-1 mt-1" }, [
+                      _c("p", { staticClass: "info-header mb-0" }, [
+                        _vm._v("Titik Kordinat"),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "info-content mt-0",
+                          attrs: {
+                            href:
+                              "https://www.google.com/maps/@" +
+                              _vm.selected_instansi.latitude +
+                              "," +
+                              _vm.selected_instansi.longitude,
+                            target: "_blank",
+                          },
+                        },
+                        [
+                          _c("i", { staticClass: "fa fa-map-marker" }),
+                          _vm._v(
+                            " " +
+                              _vm._s(
+                                _vm.selected_instansi.latitude +
+                                  ", " +
+                                  _vm.selected_instansi.longitude
+                              )
+                          ),
+                        ]
+                      ),
+                    ]),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  },
+                  [_vm._v("Tutup")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success",
+                    on: {
+                      click: function ($event) {
+                        return _vm.goToInstansi(_vm.selected_instansi)
+                      },
+                    },
+                  },
+                  [_vm._v("Selengkapnya")]
+                ),
+              ]),
+            ]),
+          ]),
+        ]
+      ),
     ],
     1
   )
@@ -15272,64 +15451,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "modal fade",
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "detailInstansiLabel" } },
+        [_vm._v("Detail Instansi")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
         attrs: {
-          id: "detailInstansi",
-          tabindex: "-1",
-          "aria-labelledby": "detailInstansiLabel",
-          "aria-hidden": "true",
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
         },
-      },
-      [
-        _c("div", { staticClass: "modal-dialog" }, [
-          _c("div", { staticClass: "modal-content" }, [
-            _c("div", { staticClass: "modal-header" }, [
-              _c(
-                "h5",
-                {
-                  staticClass: "modal-title",
-                  attrs: { id: "detailInstansiLabel" },
-                },
-                [_vm._v("Modal title")]
-              ),
-              _vm._v(" "),
-              _c("button", {
-                staticClass: "btn-close",
-                attrs: {
-                  type: "button",
-                  "data-bs-dismiss": "modal",
-                  "aria-label": "Close",
-                },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [
-              _vm._v("\n                  ...\n              "),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-footer" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { type: "button", "data-bs-dismiss": "modal" },
-                },
-                [_vm._v("Tutup")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "btn btn-primary", attrs: { type: "button" } },
-                [_vm._v("Save changes")]
-              ),
-            ]),
-          ]),
-        ]),
-      ]
-    )
+      }),
+    ])
   },
 ]
 render._withStripped = true

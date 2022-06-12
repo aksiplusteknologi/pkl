@@ -20,6 +20,7 @@ Route::resource('dashboard', DashboardController::class);
 Route::resource('guru', GuruController::class);
 Route::resource('pkl', PKLController::class);
 Route::resource('instansi', InstansiController::class);
+Route::get('/instansi/get_siswa/{pkl_id}/{instansi_id}', [InstansiController::class, 'siswa']);
 Route::resource('siswa', SiswaController::class);
 Route::resource('rombel', RombelController::class);
 Route::resource('prodi', ProdiController::class);

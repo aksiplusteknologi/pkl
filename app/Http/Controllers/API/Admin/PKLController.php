@@ -39,7 +39,7 @@ class PKLController extends Controller
      */
     public function create()
     {
-        //
+        return response()->json(PKL::get());
     }
 
     /**
@@ -61,7 +61,7 @@ class PKLController extends Controller
      */
     public function show($id)
     {
-        $pkl = PKL::with(['guru', 'siswa', 'instansi'])->find($id);
+        $pkl = PKL::with(['guru', 'siswa.rombel', 'instansi'])->find($id);
 
         return response()->json($pkl);
     }

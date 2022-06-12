@@ -26,15 +26,42 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="detailInstansiLabel">Modal title</h5>
+                    <h5 class="modal-title" id="detailInstansiLabel">Detail Instansi</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+                  <div class="row">
+                    <div class="col-2">
+                      <img src="/assets/images/building.jpg" :alt="'Logo ' + selected_instansi.nama" class="img-fluid">
+                    </div>
+                    <div class="col-10">
+                      <div class="info-list mb-1 mt-1">
+                        <p class="info-header mb-0">Nama Instansi</p>
+                        <span class="info-content mt-0">{{ selected_instansi.nama }}</span>
+                      </div>
+                      <div class="info-list mb-1 mt-1">
+                        <p class="info-header mb-0">Alamat</p>
+                        <span class="info-content mt-0">{{ selected_instansi.alamat }}</span>
+                      </div>
+                      <div class="info-list mb-1 mt-1">
+                        <p class="info-header mb-0">Status Kepemilikan</p>
+                        <span class="info-content mt-0">{{ selected_instansi.status_kepemilikan.toUpperCase() }}</span>
+                      </div>
+                      <div class="info-list mb-1 mt-1">
+                        <p class="info-header mb-0">Jenis Perusahaan</p>
+                        <span class="info-content mt-0">{{ selected_instansi.jenis_perusahaan.toUpperCase() }}</span>
+                      </div>
+                      <div class="info-list mb-1 mt-1">
+                        <p class="info-header mb-0">Titik Kordinat</p>
+                        <a :href="'https://www.google.com/maps/@' + selected_instansi.latitude + ',' + selected_instansi.longitude" target="_blank" class="info-content mt-0"><i class="fa fa-map-marker"></i> {{ `${selected_instansi.latitude}, ${selected_instansi.longitude}` }}</a>
+                      </div>
+                    </div>
+                  </div>
+                  
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button @click="goToInstansi(selected_instansi)" class="btn btn-success" >Selengkapnya</button>
                 </div>
             </div>
         </div>
@@ -65,8 +92,11 @@ export default {
         url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         attribution: "123",
         zoom: 11,
-        center: [-7.210662588321085, 107.90741136800098],
-        selected_instansi: {},
+        center: [-7.172403790397669, 107.88385944491856],
+        selected_instansi: {
+          status_kepemilikan: '',
+          jenis_perusahaan: '',
+        },
     }),
     
     computed: {
@@ -85,6 +115,11 @@ export default {
 
           $('#detailInstansi').modal('show');
         },
+
+        goToInstansi: function(instansi) {
+          $('#detailInstansi').modal('hide');
+          this.$router.push({ name: 'admin.instansi.detail', params: { instansi_id : instansi.id } });
+        }
     },
 
 }

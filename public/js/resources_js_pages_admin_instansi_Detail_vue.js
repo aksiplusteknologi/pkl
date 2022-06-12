@@ -11,6 +11,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _library_date_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/library/date.js */ "./resources/js/library/date.js");
 //
 //
 //
@@ -55,17 +56,183 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      table: {
+        columns: [{
+          label: "NISN",
+          field: "nisn"
+        }, {
+          label: "Nama Siswa/i",
+          field: "nama",
+          sortable: true
+        }, {
+          label: "Kelas",
+          field: "rombel.nama",
+          sortable: true
+        }, {
+          label: "Instansi",
+          field: "pkl.instansi.nama",
+          sortable: true
+        }, {
+          label: "Status",
+          field: "pkl.status",
+          sortable: true
+        }]
+      },
       instansi: {
         status_kepemilikan: '',
         jenis_perusahaan: ''
-      }
+      },
+      list_pkl: [],
+      selected_pkl: {
+        id: '',
+        tahun_ajaran: ''
+      },
+      siswa: []
     };
+  },
+  filters: {
+    indoDate: function indoDate(value) {
+      return (0,_library_date_js__WEBPACK_IMPORTED_MODULE_0__["default"])(value);
+    }
   },
   mounted: function mounted() {
     this.initData();
+    this.getPklList();
   },
   methods: {
     initData: function initData() {
@@ -78,9 +245,70 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function () {
         console.log('Always executed');
       });
+    },
+    getPKL: function getPKL() {
+      var _this2 = this;
+
+      $.LoadingOverlay("show");
+      axios.get('/api/admin/instansi/get_siswa/' + this.selected_pkl.id + '/' + this.instansi.id).then(function (res) {
+        console.log(res.data);
+        _this2.siswa = res.data;
+      })["catch"](function (e) {
+        console.log(e);
+      }).then(function () {
+        $.LoadingOverlay("hide");
+      });
+    },
+    getPklList: function getPklList() {
+      var _this3 = this;
+
+      axios.get('/api/admin/pkl/create').then(function (res) {
+        _this3.list_pkl = res.data;
+
+        if (_this3.list_pkl.length > 0) {
+          _this3.selected_pkl = _this3.list_pkl[0];
+
+          _this3.getPKL();
+        }
+      });
+    },
+    changePKL: function changePKL() {
+      this.getPKL();
     }
   }
 });
+
+/***/ }),
+
+/***/ "./resources/js/library/date.js":
+/*!**************************************!*\
+  !*** ./resources/js/library/date.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function indonesianDate(my_date) {
+  // return my_date
+  // return my_date[2] + my_date[1] + my_date[0];
+  if (!my_date) {
+    return false;
+  }
+
+  var str = my_date;
+  var date = moment(str);
+  return date.format('Do MMMM YYYY');
+}
+
+function getTimeZone() {
+  var raw_data = localStorage.getItem('sekolah');
+  var sekolah = JSON.parse(raw_data);
+  return sekolah.timezone.toUpperCase();
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (indonesianDate);
 
 /***/ }),
 
@@ -310,7 +538,358 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
-      _vm._m(1),
+      _c("div", { staticClass: "col-9" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-8" }, [
+                _c("h4", { staticClass: "card-title" }, [
+                  _vm._v(
+                    "\n                Tahun Ajaran " +
+                      _vm._s(_vm.selected_pkl.tahun_ajaran) +
+                      "\n              "
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "mt-0" }, [
+                  _vm._v(
+                    "Menampilkan " + _vm._s(_vm.siswa.length) + " data siswa/i"
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-4" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "pkl" } }, [
+                    _vm._v("Pilih Tahun Ajaran"),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selected_pkl,
+                          expression: "selected_pkl",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "pkl", id: "pkl" },
+                      on: {
+                        change: [
+                          function ($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function (o) {
+                                return o.selected
+                              })
+                              .map(function (o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.selected_pkl = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                          _vm.changePKL,
+                        ],
+                      },
+                    },
+                    _vm._l(_vm.list_pkl, function (pkl) {
+                      return _c(
+                        "option",
+                        { key: pkl.id, domProps: { value: pkl } },
+                        [
+                          _vm._v(
+                            _vm._s(pkl.tahun_ajaran) +
+                              " - " +
+                              _vm._s(pkl.status.toUpperCase())
+                          ),
+                        ]
+                      )
+                    }),
+                    0
+                  ),
+                ]),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c(
+              "div",
+              { staticClass: "table-responsive" },
+              [
+                _c(
+                  "vue-good-table",
+                  {
+                    attrs: {
+                      "search-options": {
+                        enabled: true,
+                        trigger: "enter",
+                        skipDiacritics: true,
+                        placeholder: "Type and enter to search",
+                      },
+                      totalRows: _vm.table.totalRows,
+                      "pagination-options": {
+                        enabled: true,
+                        mode: "pages",
+                        position: "bottom",
+                        dropdownAllowAll: false,
+                        nextLabel: "Next",
+                        prevLabel: "Prev",
+                        rowsPerPageLabel: "Rows per page",
+                        ofLabel: "of",
+                        pageLabel: "page", // for 'pages' mode
+                        allLabel: "All",
+                      },
+                      columns: _vm.table.columns,
+                      rows: _vm.siswa,
+                      styleClass: "vgt-table condensed pgTble",
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "table-row",
+                        fn: function (props) {
+                          return [
+                            props.column.field == "nisn"
+                              ? _c("span", [
+                                  _vm._v(
+                                    "\n                        " +
+                                      _vm._s(props.row.nisn) +
+                                      "\n                    "
+                                  ),
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            props.column.field == "nama"
+                              ? _c(
+                                  "span",
+                                  [
+                                    _c(
+                                      "router-link",
+                                      {
+                                        attrs: {
+                                          to: {
+                                            name: "admin.siswa.detail",
+                                            params: { siswa_id: props.row.id },
+                                          },
+                                          "data-toggle": "tooltip",
+                                          "data-placement": "top",
+                                          title:
+                                            "Klik Untuk Melihat Detail " +
+                                            props.row.nama,
+                                        },
+                                      },
+                                      [_vm._v(_vm._s(props.row.nama))]
+                                    ),
+                                  ],
+                                  1
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            props.column.field == "pkl.instansi.nama"
+                              ? _c("span", [
+                                  props.row.pkl
+                                    ? _c(
+                                        "span",
+                                        [
+                                          _c(
+                                            "router-link",
+                                            {
+                                              attrs: {
+                                                to: {
+                                                  name: "admin.instansi.detail",
+                                                  params: {
+                                                    instansi_id:
+                                                      props.row.pkl.instansi.id,
+                                                  },
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                " +
+                                                  _vm._s(
+                                                    props.row.pkl.instansi.nama
+                                                  ) +
+                                                  "\n                            "
+                                              ),
+                                            ]
+                                          ),
+                                        ],
+                                        1
+                                      )
+                                    : _c(
+                                        "span",
+                                        { staticClass: "badge bg-warning" },
+                                        [_vm._v("Belum PKL")]
+                                      ),
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            props.column.field == "pkl.status"
+                              ? _c("span", [
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "badge",
+                                      class: {
+                                        "bg-primary":
+                                          props.row.pkl.status == "berlangsung",
+                                        "bg-danger":
+                                          props.row.pkl.status == "batal",
+                                        "bg-success":
+                                          props.row.pkl.status == "selesai",
+                                      },
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                            " +
+                                          _vm._s(
+                                            props.row.pkl.pkl.status.toUpperCase()
+                                          ) +
+                                          "\n                        "
+                                      ),
+                                    ]
+                                  ),
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            props.column.field == "jenis_kelamin"
+                              ? _c("span", [
+                                  props.row.jenis_kelamin == "l"
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "badge bg-success" },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-mars",
+                                          }),
+                                          _vm._v(
+                                            " L\n                        "
+                                          ),
+                                        ]
+                                      )
+                                    : _c(
+                                        "span",
+                                        { staticClass: "badge bg-danger" },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-venus",
+                                          }),
+                                          _vm._v(
+                                            " P\n                        "
+                                          ),
+                                        ]
+                                      ),
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            props.column.field == "rombel.nama"
+                              ? _c("span", [
+                                  _vm._v(
+                                    "\n                        " +
+                                      _vm._s(props.row.rombel.nama) +
+                                      "\n                    "
+                                  ),
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            props.column.field == "ttl"
+                              ? _c("span", [
+                                  _c("i", [
+                                    _vm._v(_vm._s(props.row.tempat_lahir)),
+                                  ]),
+                                  _vm._v(
+                                    "\n                        , " +
+                                      _vm._s(
+                                        _vm._f("indoDate")(
+                                          props.row.tanggal_lahir
+                                        )
+                                      ) +
+                                      "\n                    "
+                                  ),
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            props.column.field == "aksi"
+                              ? _c("span", [
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "pointer badge bg-warning",
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.editsiswa(props.row.id)
+                                        },
+                                      },
+                                    },
+                                    [
+                                      _c("i", { staticClass: "fa fa-wrench" }),
+                                      _vm._v(" Edit\n                        "),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass:
+                                        "pointer badge bg-danger pointer",
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.deletesiswa(props.row.id)
+                                        },
+                                      },
+                                    },
+                                    [
+                                      _c("i", { staticClass: "fa fa-trash" }),
+                                      _vm._v(
+                                        " Hapus\n                        "
+                                      ),
+                                    ]
+                                  ),
+                                ])
+                              : _vm._e(),
+                          ]
+                        },
+                      },
+                    ]),
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        attrs: { slot: "selected-row-actions" },
+                        slot: "selected-row-actions",
+                      },
+                      [
+                        _c(
+                          "span",
+                          {
+                            staticClass: "badge badge-danger pointer",
+                            on: {
+                              click: function ($event) {
+                                return _vm.massDeleteGuru()
+                              },
+                            },
+                          },
+                          [
+                            _c("i", { staticClass: "fa fa-trash" }),
+                            _vm._v(" Hapus Masal Guru\n                    "),
+                          ]
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+              ],
+              1
+            ),
+          ]),
+        ]),
+      ]),
     ]),
   ])
 }
@@ -321,18 +900,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c("h4", { staticClass: "card-title" }, [_vm._v("Detail Instansi")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-9" }, [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _vm._v("\n          ok\n        "),
-        ]),
-      ]),
     ])
   },
 ]

@@ -7,6 +7,9 @@ use App\Http\Requests\InstansiRequest;
 use Illuminate\Http\Request;
 
 use App\Models\Instansi;
+use App\Models\InstansiSiswa;
+use App\Models\PKL;
+use App\Models\Siswa;
 
 class InstansiController extends Controller
 {
@@ -79,6 +82,14 @@ class InstansiController extends Controller
         return response()->json($instansi);
     }
 
+    public function siswa($pkl_id, $instansi_id)
+    {
+        $siswa_id = InstansiSiswa::where('pkl_id', $pkl_id)->where('instansi_id', $instansi_id)->pluck('siswa_id')->toArray();
+
+        $siswa = Siswa::with(['rombel'])->whereIn('id', $siswa_id)->get();
+
+        return response()->json($siswa);
+    }
     /**
      * Show the form for editing the specified resource.
      *

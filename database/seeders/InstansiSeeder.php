@@ -19,8 +19,7 @@ class InstansiSeeder extends Seeder
 
 
         $center = [
-            -7.3115283590539,
-            107.95346027387,
+            -7.172403790397669, 107.88385944491856
         ];
         $radius = 10;
 
