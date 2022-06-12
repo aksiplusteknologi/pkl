@@ -12,7 +12,7 @@ class Instansi extends Model
     protected $table = 'instansi';
 
     protected $attributes = [
-        'show_pkl',
+        // 'show_pkl',
     ];
 
     protected $fillable = [

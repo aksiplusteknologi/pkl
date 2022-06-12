@@ -15,7 +15,7 @@
             <l-icon
                 :icon-size="dynamicSize"
                 :icon-anchor="dynamicAnchor"
-                icon-url="https://w7.pngwing.com/pngs/236/41/png-transparent-illustration-of-map-icon-google-map-maker-google-maps-computer-icons-map-marker-text-heart-logo-thumbnail.png"
+                icon-url="/assets/images/marker.png"
             />
         </l-marker>
     </l-map>
@@ -64,7 +64,7 @@ export default {
     data: () => ({
         url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         attribution: "123",
-        zoom: 14,
+        zoom: 11,
         center: [-7.210662588321085, 107.90741136800098],
         selected_instansi: {},
     }),

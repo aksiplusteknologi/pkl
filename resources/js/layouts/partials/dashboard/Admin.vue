@@ -232,12 +232,24 @@ export default {
 
     mounted() {
         this.getSekolah();
+        this.getInstansi();
     },
 
     methods: {
         getSekolah: function () {
             axios.get("/api/pub/sekolah").then((res) => {
                 this.sekolah = res.data;
+            });
+        },
+        getInstansi: function () {
+            axios.get("/api/admin/instansi?dashboard=y")
+            .then(res => {
+                this.instansi = res.data.map((el) => {
+                    return {
+                        ...el,
+                        latlang: [el.latitude, el.longitude]
+                    }
+                });
             });
         },
     },
