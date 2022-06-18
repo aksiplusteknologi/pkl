@@ -84,6 +84,7 @@ class InstansiController extends Controller
 
     public function siswa($pkl_id, $instansi_id)
     {
+
         $siswa_id = InstansiSiswa::where('pkl_id', $pkl_id)->where('instansi_id', $instansi_id)->pluck('siswa_id')->toArray();
 
         $siswa = Siswa::with(['rombel'])->whereIn('id', $siswa_id)->get();

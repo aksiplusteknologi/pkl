@@ -45,9 +45,9 @@
                                 :rows="pkl.siswa"
                                 styleClass="vgt-table condensed pgTble"
                             >
-                                <!-- <div slot="table-actions">
-                                This will show up on the top right of the table. 
-                                </div>-->
+                                <div slot="table-actions">
+                                    <router-link :to="{ name: 'admin.pkl.add', params: { pkl_id: $route.params.pkl_id } }" class="btn btn-success btn-sm"><i class="fa fa-user-plus"></i> Tambah Siswa</router-link>
+                                </div>
 
                                 <div slot="selected-row-actions">
                                     <span v-on:click="massDeleteGuru()" class="badge badge-danger pointer">

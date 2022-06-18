@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Instansi;
+use App\Models\InstansiSiswa;
 use Illuminate\Http\Request;
 
 use App\Models\PKL;
+use App\Models\Rombel;
+use App\Models\Siswa;
 
 class PKLController extends Controller
 {
@@ -64,6 +68,34 @@ class PKLController extends Controller
         $pkl = PKL::with(['guru', 'siswa.rombel', 'instansi'])->find($id);
 
         return response()->json($pkl);
+    }
+
+    public function addSiswa(Request $request)
+    {
+        $instansi_siswa = new InstansiSiswa;
+        $instansi_siswa->siswa_id = $request->siswa_id;
+        $instansi_siswa->pkl_id = $request->pkl_id;
+        $instansi_siswa->instansi_id = $request->instansi_id;
+        $instansi_siswa->status = 'berlangsung';
+
+        if ($instansi_siswa->save()) {
+            return response()->json([
+                'status' => true,
+                'message' => 'Berhasil menambahkan siswa ',
+            ]);
+        }
+    }
+
+    public function getSiswa($pkl_id)
+    {
+        $pkl = PKL::findOrFail($pkl_id);
+
+        $rombel_id = Rombel::where('tahun_ajaran', $pkl->tahun_ajaran)->pluck('id')->toArray();
+        $instansi_siswa = InstansiSiswa::where('pkl_id', $pkl_id)->pluck('siswa_id')->toArray();
+
+        $siswa = Siswa::whereIn('rombel_id', $rombel_id)->with(['rombel'])->whereNotIn('id', $instansi_siswa)->get();
+
+        return $siswa;
     }
 
     /**

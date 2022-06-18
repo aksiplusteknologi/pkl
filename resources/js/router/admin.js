@@ -29,6 +29,11 @@ let admin_router = {
                     component: () => import("@/pages/admin/pkl/Index"),
                 },
                 {
+                    path: "add/:pkl_id",
+                    name: "admin.pkl.add",
+                    component: () => import("@/pages/admin/pkl/Add"),
+                },
+                {
                     path: "detail/:pkl_id",
                     name: "admin.pkl.detail",
                     component: () => import("@/pages/admin/pkl/Detail"),

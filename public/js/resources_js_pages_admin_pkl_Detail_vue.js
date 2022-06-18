@@ -15470,6 +15470,35 @@ var render = function () {
                         _c(
                           "div",
                           {
+                            attrs: { slot: "table-actions" },
+                            slot: "table-actions",
+                          },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn-success btn-sm",
+                                attrs: {
+                                  to: {
+                                    name: "admin.pkl.add",
+                                    params: {
+                                      pkl_id: _vm.$route.params.pkl_id,
+                                    },
+                                  },
+                                },
+                              },
+                              [
+                                _c("i", { staticClass: "fa fa-user-plus" }),
+                                _vm._v(" Tambah Siswa"),
+                              ]
+                            ),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
                             attrs: { slot: "selected-row-actions" },
                             slot: "selected-row-actions",
                           },
