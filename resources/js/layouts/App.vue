@@ -100,7 +100,7 @@
                                 <i class="ti ti-settings font-16 me-1 align-text-bottom"></i> Settings
                             </a>
                             <div class="dropdown-divider mb-0"></div>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="javacript:void(0)" @click="doLogout">
                                 <i class="ti ti-power font-16 me-1 align-text-bottom"></i> Logout
                             </a>
                         </div>
@@ -293,6 +293,28 @@ export default {
     },
 
     methods: {
+
+        doLogout: function () {
+            swal({
+                title: "Anda akan keluar dari Aplikasi",
+                text: "Lanjut?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((value) => {
+                if (value) {
+                                this.$store.dispatch("logout").then(() => {
+                                    toastr.success(
+                                        "Successfully logged out. Redirecting to Login Page"
+                                    );
+                                    window.location.href = "/login";
+                                });
+                } else {
+                    toastr.info("Canceled");
+                }
+            });
+        },
+
         getSekolah: function () {
             axios.get("/api/pub/sekolah").then((res) => {
                 this.sekolah = res.data;
