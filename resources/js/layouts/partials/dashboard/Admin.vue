@@ -182,7 +182,7 @@
                             style="margin-right: 5px"
                             v-for="(i, index) in instansi"
                             :key="index"
-                        >{{ i.nama }} (5 orang)</span>
+                        >{{ i.nama }}</span>
                     </div>
                 </div>
             </div>

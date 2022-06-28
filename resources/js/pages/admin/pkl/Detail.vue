@@ -61,6 +61,11 @@
                                     :doc_due_date="doc_due_date"
                                     slot-scope="props"
                                 >
+                                    <span v-if="props.column.field == 'nis'">
+                                        {{
+                                        props.row.nis
+                                        }}
+                                    </span>
                                     <span v-if="props.column.field == 'nisn'">
                                         {{
                                         props.row.nisn
@@ -173,6 +178,10 @@ export default {
         },
         table: {
             columns: [
+                {
+                    label: "NIS",
+                    field: "nis",
+                },
                 {
                     label: "NISN",
                     field: "nisn",

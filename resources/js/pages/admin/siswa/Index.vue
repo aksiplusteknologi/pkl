@@ -67,6 +67,11 @@
                                 props.row.nisn
                                 }}
                             </span>
+                            <span v-if="props.column.field == 'nis'">
+                                {{
+                                props.row.nis
+                                }}
+                            </span>
                             <span v-if="props.column.field == 'nama'">
                                 <router-link
                                     :to="{
@@ -152,6 +157,10 @@ export default {
         table: {
             rows: [],
             columns: [
+                {
+                    label: "NIS",
+                    field: "nis",
+                },
                 {
                     label: "NISN",
                     field: "nisn",

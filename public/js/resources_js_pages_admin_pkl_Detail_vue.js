@@ -304,6 +304,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -331,6 +336,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       table: {
         columns: [{
+          label: "NIS",
+          field: "nis"
+        }, {
           label: "NISN",
           field: "nisn"
         }, {
@@ -15248,6 +15256,16 @@ var render = function () {
                             key: "table-row",
                             fn: function (props) {
                               return [
+                                props.column.field == "nis"
+                                  ? _c("span", [
+                                      _vm._v(
+                                        "\n                                    " +
+                                          _vm._s(props.row.nis) +
+                                          "\n                                "
+                                      ),
+                                    ])
+                                  : _vm._e(),
+                                _vm._v(" "),
                                 props.column.field == "nisn"
                                   ? _c("span", [
                                       _vm._v(

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="pkl">
         <div class="row">
             <div class="col-md-4">
                 <div class="card h-100">
@@ -109,7 +109,7 @@
                     <div class="card-header">
                         Peta Sebaran Lokasi Prakerin
                         <!-- TODO : Dynamic tahun ajaran -->
-                        <br />Tahun Ajaran 2021/2022
+                        <br />Tahun Ajaran {{ sekolah.tahun_ajaran }}
                     </div>
                     <div class="card-body">
                         <Map :instansi="instansi" />
@@ -120,12 +120,35 @@
                             style="margin-right: 5px"
                             v-for="(i, index) in instansi"
                             :key="index"
-                        >{{ i.nama }} (5 orang)</span>
+                        >{{ i.nama }}</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+	<div v-else>
+		<div class="col-md-5">
+			<div class="card h-100">
+				<div class="card-header">
+					Peta Sebaran Lokasi Prakerin
+					<!-- TODO : Dynamic tahun ajaran -->
+					<br />Tahun Ajaran {{ sekolah.tahun_ajaran }}
+				</div>
+				<div class="card-body">
+					<Map :instansi="instansi" />
+				</div>
+				<div class="card-footer">
+					<span
+						class="badge bg-primary"
+						style="margin-right: 5px"
+						v-for="(i, index) in instansi"
+						:key="index"
+					>{{ i.nama }}</span>
+				</div>
+			</div>
+		</div>
+		
+	</div>
 </template>
 
 <script>

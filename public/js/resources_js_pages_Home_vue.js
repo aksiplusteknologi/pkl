@@ -417,6 +417,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -15391,7 +15414,7 @@ var render = function () {
                   staticClass: "badge bg-primary",
                   staticStyle: { "margin-right": "5px" },
                 },
-                [_vm._v(_vm._s(i.nama) + " (5 orang)")]
+                [_vm._v(_vm._s(i.nama))]
               )
             }),
             0
@@ -15566,275 +15589,351 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-4" }, [
-        _c("div", { staticClass: "card h-100" }, [
-          _c("div", { staticClass: "card-header" }, [
-            _vm._v("Identitas Sekolah"),
+  return _vm.pkl
+    ? _c("div", [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-4" }, [
+            _c("div", { staticClass: "card h-100" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _vm._v("Identitas Sekolah"),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "card-body" },
+                [
+                  _c("center", { staticClass: "mt-3" }, [
+                    _c("img", {
+                      staticClass: "img-fluid",
+                      staticStyle: { width: "220px" },
+                      attrs: { src: "/images/logo_sekolah.png", alt: "" },
+                    }),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        staticStyle: { color: "#37474f", "margin-top": "15px" },
+                      },
+                      [_vm._v(_vm._s(_vm.sekolah.alamat))]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "table-responsive mt-3" }, [
+                    _c("table", {}, [
+                      _c("tr", [
+                        _c("td", { staticStyle: { "padding-right": "10px" } }, [
+                          _vm._v("NPSN"),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticStyle: { width: "5%" } }, [
+                          _vm._v(":"),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(_vm.sekolah.npsn))]),
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", { staticStyle: { "padding-right": "10px" } }, [
+                          _vm._v("Nama Sekolah"),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticStyle: { width: "5%" } }, [
+                          _vm._v(":"),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(_vm.sekolah.nama_sekolah))]),
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", { staticStyle: { "padding-right": "10px" } }, [
+                          _vm._v("SK Pendirian"),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticStyle: { width: "5%" } }, [
+                          _vm._v(":"),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(_vm._s(_vm.sekolah.sk_pendirian_sekolah)),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", { staticStyle: { "padding-right": "10px" } }, [
+                          _vm._v("Tgl. SK Pendirian"),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticStyle: { width: "5%" } }, [
+                          _vm._v(":"),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(_vm._s(_vm.sekolah.tanggal_sk_pendirian)),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", { staticStyle: { "padding-right": "10px" } }, [
+                          _vm._v("SK Izin Operasional"),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticStyle: { width: "5%" } }, [
+                          _vm._v(":"),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(_vm._s(_vm.sekolah.sk_izin_operasional)),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", { staticStyle: { "padding-right": "10px" } }, [
+                          _vm._v("Tgl. SK Izin Operasional"),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticStyle: { width: "5%" } }, [
+                          _vm._v(":"),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(_vm.sekolah.tanggal_sk_izin_operasional)
+                          ),
+                        ]),
+                      ]),
+                    ]),
+                  ]),
+                ],
+                1
+              ),
+            ]),
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "card-body" },
-            [
-              _c("center", { staticClass: "mt-3" }, [
-                _c("img", {
-                  staticClass: "img-fluid",
-                  staticStyle: { width: "220px" },
-                  attrs: { src: "/images/logo_sekolah.png", alt: "" },
-                }),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "card h-100 overflow-hidden" }, [
+              _c("div", { staticClass: "card-body" }, [
                 _c(
-                  "span",
-                  { staticStyle: { color: "#37474f", "margin-top": "15px" } },
-                  [_vm._v(_vm._s(_vm.sekolah.alamat))]
+                  "div",
+                  { staticClass: "pt-3" },
+                  [
+                    _c(
+                      "h3",
+                      {
+                        staticClass:
+                          "text-dark text-center font-24 fw-bold line-height-lg",
+                      },
+                      [
+                        _vm._v(
+                          "\n                                Tahun Ajaran " +
+                            _vm._s(_vm.sekolah.tahun_ajaran) +
+                            "\n                                "
+                        ),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "badge bg-primary" }, [
+                          _vm._v(_vm._s(_vm.pkl.status.toUpperCase())),
+                        ]),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("hr"),
+                    _vm._v(" "),
+                    _c("center", [
+                      _c("h4", [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t\tLokasi PKL Anda\n\t\t\t\t\t\t\t\t"
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "table-responsive mt-3" }, [
+                      _c("table", {}, [
+                        _c("tr", [
+                          _c(
+                            "td",
+                            { staticStyle: { "padding-right": "10px" } },
+                            [_vm._v("Nama")]
+                          ),
+                          _vm._v(" "),
+                          _c("td", { staticStyle: { width: "5%" } }, [
+                            _vm._v(":"),
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(_vm.pkl.instansi.nama))]),
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c(
+                            "td",
+                            { staticStyle: { "padding-right": "10px" } },
+                            [_vm._v("Alamat")]
+                          ),
+                          _vm._v(" "),
+                          _c("td", { staticStyle: { width: "5%" } }, [
+                            _vm._v(":"),
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(_vm.pkl.instansi.alamat))]),
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c(
+                            "td",
+                            { staticStyle: { "padding-right": "10px" } },
+                            [_vm._v("Jenis")]
+                          ),
+                          _vm._v(" "),
+                          _c("td", { staticStyle: { width: "5%" } }, [
+                            _vm._v(":"),
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.pkl.instansi.jenis_perusahaan.toUpperCase()
+                              )
+                            ),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c(
+                            "td",
+                            { staticStyle: { "padding-right": "10px" } },
+                            [_vm._v("Status")]
+                          ),
+                          _vm._v(" "),
+                          _c("td", { staticStyle: { width: "5%" } }, [
+                            _vm._v(":"),
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.pkl.instansi.status_kepemilikan.toUpperCase()
+                              )
+                            ),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c(
+                            "td",
+                            { staticStyle: { "padding-right": "10px" } },
+                            [_vm._v("Lokasi")]
+                          ),
+                          _vm._v(" "),
+                          _c("td", { staticStyle: { width: "5%" } }, [
+                            _vm._v(":"),
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              _vm._s(_vm.pkl.instansi.latitude) +
+                                ", " +
+                                _vm._s(_vm.pkl.instansi.longitude)
+                            ),
+                          ]),
+                        ]),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("Map", { attrs: { instansi: [_vm.pkl.instansi] } }),
+                  ],
+                  1
+                ),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-5" }, [
+            _c("div", { staticClass: "card h-100" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _vm._v(
+                  "\n                        Peta Sebaran Lokasi Prakerin\n                        "
+                ),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(
+                  "Tahun Ajaran " +
+                    _vm._s(_vm.sekolah.tahun_ajaran) +
+                    "\n                    "
                 ),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "table-responsive mt-3" }, [
-                _c("table", {}, [
-                  _c("tr", [
-                    _c("td", { staticStyle: { "padding-right": "10px" } }, [
-                      _vm._v("NPSN"),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(_vm.sekolah.npsn))]),
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", { staticStyle: { "padding-right": "10px" } }, [
-                      _vm._v("Nama Sekolah"),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(_vm.sekolah.nama_sekolah))]),
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", { staticStyle: { "padding-right": "10px" } }, [
-                      _vm._v("SK Pendirian"),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(_vm._s(_vm.sekolah.sk_pendirian_sekolah)),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", { staticStyle: { "padding-right": "10px" } }, [
-                      _vm._v("Tgl. SK Pendirian"),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(_vm._s(_vm.sekolah.tanggal_sk_pendirian)),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", { staticStyle: { "padding-right": "10px" } }, [
-                      _vm._v("SK Izin Operasional"),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(_vm.sekolah.sk_izin_operasional))]),
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", { staticStyle: { "padding-right": "10px" } }, [
-                      _vm._v("Tgl. SK Izin Operasional"),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(_vm._s(_vm.sekolah.tanggal_sk_izin_operasional)),
-                    ]),
-                  ]),
-                ]),
-              ]),
-            ],
-            1
-          ),
+              _c(
+                "div",
+                { staticClass: "card-body" },
+                [_c("Map", { attrs: { instansi: _vm.instansi } })],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "card-footer" },
+                _vm._l(_vm.instansi, function (i, index) {
+                  return _c(
+                    "span",
+                    {
+                      key: index,
+                      staticClass: "badge bg-primary",
+                      staticStyle: { "margin-right": "5px" },
+                    },
+                    [_vm._v(_vm._s(i.nama))]
+                  )
+                }),
+                0
+              ),
+            ]),
+          ]),
         ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-3" }, [
-        _c("div", { staticClass: "card h-100 overflow-hidden" }, [
-          _c("div", { staticClass: "card-body" }, [
+      ])
+    : _c("div", [
+        _c("div", { staticClass: "col-md-5" }, [
+          _c("div", { staticClass: "card h-100" }, [
+            _c("div", { staticClass: "card-header" }, [
+              _vm._v("\n\t\t\t\t\tPeta Sebaran Lokasi Prakerin\n\t\t\t\t\t"),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(
+                "Tahun Ajaran " +
+                  _vm._s(_vm.sekolah.tahun_ajaran) +
+                  "\n\t\t\t\t"
+              ),
+            ]),
+            _vm._v(" "),
             _c(
               "div",
-              { staticClass: "pt-3" },
-              [
-                _c(
-                  "h3",
-                  {
-                    staticClass:
-                      "text-dark text-center font-24 fw-bold line-height-lg",
-                  },
-                  [
-                    _vm._v(
-                      "\n                                Tahun Ajaran " +
-                        _vm._s(_vm.sekolah.tahun_ajaran) +
-                        "\n                                "
-                    ),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "badge bg-primary" }, [
-                      _vm._v(_vm._s(_vm.pkl.status.toUpperCase())),
-                    ]),
-                  ]
-                ),
-                _vm._v(" "),
-                _c("hr"),
-                _vm._v(" "),
-                _c("center", [
-                  _c("h4", [
-                    _vm._v(
-                      "\n\t\t\t\t\t\t\t\t\tLokasi PKL Anda\n\t\t\t\t\t\t\t\t"
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "table-responsive mt-3" }, [
-                  _c("table", {}, [
-                    _c("tr", [
-                      _c("td", { staticStyle: { "padding-right": "10px" } }, [
-                        _vm._v("Nama"),
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(_vm.pkl.instansi.nama))]),
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticStyle: { "padding-right": "10px" } }, [
-                        _vm._v("Alamat"),
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(_vm.pkl.instansi.alamat))]),
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticStyle: { "padding-right": "10px" } }, [
-                        _vm._v("Jenis"),
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.pkl.instansi.jenis_perusahaan.toUpperCase()
-                          )
-                        ),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticStyle: { "padding-right": "10px" } }, [
-                        _vm._v("Status"),
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.pkl.instansi.status_kepemilikan.toUpperCase()
-                          )
-                        ),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticStyle: { "padding-right": "10px" } }, [
-                        _vm._v("Lokasi"),
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _vm._v(
-                          _vm._s(_vm.pkl.instansi.latitude) +
-                            ", " +
-                            _vm._s(_vm.pkl.instansi.longitude)
-                        ),
-                      ]),
-                    ]),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("Map", { attrs: { instansi: [_vm.pkl.instansi] } }),
-              ],
+              { staticClass: "card-body" },
+              [_c("Map", { attrs: { instansi: _vm.instansi } })],
               1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card-footer" },
+              _vm._l(_vm.instansi, function (i, index) {
+                return _c(
+                  "span",
+                  {
+                    key: index,
+                    staticClass: "badge bg-primary",
+                    staticStyle: { "margin-right": "5px" },
+                  },
+                  [_vm._v(_vm._s(i.nama))]
+                )
+              }),
+              0
             ),
           ]),
         ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-5" }, [
-        _c("div", { staticClass: "card h-100" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "card-body" },
-            [_c("Map", { attrs: { instansi: _vm.instansi } })],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "card-footer" },
-            _vm._l(_vm.instansi, function (i, index) {
-              return _c(
-                "span",
-                {
-                  key: index,
-                  staticClass: "badge bg-primary",
-                  staticStyle: { "margin-right": "5px" },
-                },
-                [_vm._v(_vm._s(i.nama) + " (5 orang)")]
-              )
-            }),
-            0
-          ),
-        ]),
-      ]),
-    ]),
-  ])
+      ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _vm._v(
-        "\n                        Peta Sebaran Lokasi Prakerin\n                        "
-      ),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v("Tahun Ajaran 2021/2022\n                    "),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
