@@ -1,15 +1,18 @@
 <template>
     <div>
         <AdminDashboard v-if="checkType == 'admin'" />
+        <SiswaDashbboard v-if="checkType == 'siswa'" />
     </div>
 </template>
 
 <script>
 import AdminDashboard from "@/layouts/partials/dashboard/Admin";
+import SiswaDashbboard from "@/layouts/partials/dashboard/Siswa";
 
 export default {
     components: {
         AdminDashboard,
+        SiswaDashbboard,
     },
 
     computed: {

@@ -1,14 +1,17 @@
 <template>
     <div>
+        <SiswaSidebar v-if="checkType == 'siswa'" />
         <AdminSidebar v-if="checkType == 'admin'" />
     </div>
 </template>
 
 <script>
 import AdminSidebar from "@/layouts/partials/sidebar/Admin";
+import SiswaSidebar from "@/layouts/partials/sidebar/Siswa";
 
 export default {
     components: {
+        SiswaSidebar,
         AdminSidebar,
     },
 

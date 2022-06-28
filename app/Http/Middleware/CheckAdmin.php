@@ -18,7 +18,7 @@ class CheckAdmin
     {
         $user = auth()->user();
 
-        if ($user->user_type === 'admin') {
+        if ($user->user_type === 'admin' || $user->user_type === 'siswa') {
             return $next($request);
         } else {
             return response()->json([

@@ -18,7 +18,7 @@ class CheckSiswa
     {
         $user = auth()->user();
 
-        if ($user->user_type === 'guru') {
+        if ($user->user_type === 'siswa') {
             return $next($request);
         } else {
             return response()->json([

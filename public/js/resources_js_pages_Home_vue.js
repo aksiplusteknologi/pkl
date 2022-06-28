@@ -269,6 +269,235 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/Siswa.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/Siswa.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _components_Map_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Map.vue */ "./resources/js/layouts/partials/dashboard/components/Map.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Map: _components_Map_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      pkl: {
+        status: '',
+        pkl: {
+          tahun_ajaran: '',
+          instansi: {
+            latlang: ['', ''],
+            nama: '',
+            alamat: '',
+            latitude: '',
+            longitude: ''
+          }
+        }
+      },
+      sekolah: {},
+      instansi: [{
+        nama: "PT. Mobidu",
+        data: "Ok",
+        latlang: [-7.208959547325653, 107.91041544191225]
+      }, {
+        nama: "PT Jaya Abadi",
+        data: "Ok",
+        latlang: [-7.211003195586779, 107.91608026713703]
+      }, {
+        nama: "Kerkoff",
+        data: "Ok",
+        latlang: [-7.205894057646849, 107.90337732572387]
+      }, {
+        nama: "Nurhayati",
+        data: "Ok",
+        latlang: [-7.21645287918694, 107.92140176962093]
+      }, {
+        nama: "RSUD Slamet",
+        data: "Ok",
+        latlang: [-7.218666794404613, 107.89702585501728]
+      }]
+    };
+  },
+  mounted: function mounted() {
+    this.getDashboard();
+    this.getSekolah();
+    this.getInstansi();
+  },
+  methods: {
+    getDashboard: function getDashboard() {
+      var _this = this;
+
+      axios.get('/api/siswa/dashboard').then(function (res) {
+        _this.pkl = res.data.siswa.pkl;
+        _this.pkl.instansi.latlang = [res.data.siswa.pkl.instansi.latitude, res.data.siswa.pkl.instansi.longitude];
+      });
+    },
+    getSekolah: function getSekolah() {
+      var _this2 = this;
+
+      axios.get("/api/pub/sekolah").then(function (res) {
+        _this2.sekolah = res.data;
+      });
+    },
+    getInstansi: function getInstansi() {
+      var _this3 = this;
+
+      axios.get("/api/admin/instansi?dashboard=y").then(function (res) {
+        _this3.instansi = res.data.map(function (el) {
+          return _objectSpread(_objectSpread({}, el), {}, {
+            latlang: [el.latitude, el.longitude]
+          });
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=script&lang=js& ***!
@@ -423,6 +652,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _layouts_partials_dashboard_Admin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/layouts/partials/dashboard/Admin */ "./resources/js/layouts/partials/dashboard/Admin.vue");
+/* harmony import */ var _layouts_partials_dashboard_Siswa__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/layouts/partials/dashboard/Siswa */ "./resources/js/layouts/partials/dashboard/Siswa.vue");
+//
 //
 //
 //
@@ -430,9 +661,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    AdminDashboard: _layouts_partials_dashboard_Admin__WEBPACK_IMPORTED_MODULE_0__["default"]
+    AdminDashboard: _layouts_partials_dashboard_Admin__WEBPACK_IMPORTED_MODULE_0__["default"],
+    SiswaDashbboard: _layouts_partials_dashboard_Siswa__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   computed: {
     checkType: function checkType() {
@@ -14715,6 +14948,45 @@ component.options.__file = "resources/js/layouts/partials/dashboard/Admin.vue"
 
 /***/ }),
 
+/***/ "./resources/js/layouts/partials/dashboard/Siswa.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/layouts/partials/dashboard/Siswa.vue ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Siswa_vue_vue_type_template_id_c05b9a5a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Siswa.vue?vue&type=template&id=c05b9a5a& */ "./resources/js/layouts/partials/dashboard/Siswa.vue?vue&type=template&id=c05b9a5a&");
+/* harmony import */ var _Siswa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Siswa.vue?vue&type=script&lang=js& */ "./resources/js/layouts/partials/dashboard/Siswa.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Siswa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Siswa_vue_vue_type_template_id_c05b9a5a___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Siswa_vue_vue_type_template_id_c05b9a5a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/layouts/partials/dashboard/Siswa.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/layouts/partials/dashboard/components/Map.vue":
 /*!********************************************************************!*\
   !*** ./resources/js/layouts/partials/dashboard/components/Map.vue ***!
@@ -14809,6 +15081,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/layouts/partials/dashboard/Siswa.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/layouts/partials/dashboard/Siswa.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Siswa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Siswa.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/Siswa.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Siswa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************!*\
   !*** ./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=script&lang=js& ***!
@@ -14854,6 +15142,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Admin_vue_vue_type_template_id_51eb0c8a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Admin_vue_vue_type_template_id_51eb0c8a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Admin.vue?vue&type=template&id=51eb0c8a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/Admin.vue?vue&type=template&id=51eb0c8a&");
+
+
+/***/ }),
+
+/***/ "./resources/js/layouts/partials/dashboard/Siswa.vue?vue&type=template&id=c05b9a5a&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/layouts/partials/dashboard/Siswa.vue?vue&type=template&id=c05b9a5a& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Siswa_vue_vue_type_template_id_c05b9a5a___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Siswa_vue_vue_type_template_id_c05b9a5a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Siswa_vue_vue_type_template_id_c05b9a5a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Siswa.vue?vue&type=template&id=c05b9a5a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/Siswa.vue?vue&type=template&id=c05b9a5a&");
 
 
 /***/ }),
@@ -15245,6 +15550,297 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/Siswa.vue?vue&type=template&id=c05b9a5a&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/Siswa.vue?vue&type=template&id=c05b9a5a& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "card h-100" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("Identitas Sekolah"),
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "card-body" },
+            [
+              _c("center", { staticClass: "mt-3" }, [
+                _c("img", {
+                  staticClass: "img-fluid",
+                  staticStyle: { width: "220px" },
+                  attrs: { src: "/images/logo_sekolah.png", alt: "" },
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  { staticStyle: { color: "#37474f", "margin-top": "15px" } },
+                  [_vm._v(_vm._s(_vm.sekolah.alamat))]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "table-responsive mt-3" }, [
+                _c("table", {}, [
+                  _c("tr", [
+                    _c("td", { staticStyle: { "padding-right": "10px" } }, [
+                      _vm._v("NPSN"),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(_vm.sekolah.npsn))]),
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticStyle: { "padding-right": "10px" } }, [
+                      _vm._v("Nama Sekolah"),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(_vm.sekolah.nama_sekolah))]),
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticStyle: { "padding-right": "10px" } }, [
+                      _vm._v("SK Pendirian"),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(_vm._s(_vm.sekolah.sk_pendirian_sekolah)),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticStyle: { "padding-right": "10px" } }, [
+                      _vm._v("Tgl. SK Pendirian"),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(_vm._s(_vm.sekolah.tanggal_sk_pendirian)),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticStyle: { "padding-right": "10px" } }, [
+                      _vm._v("SK Izin Operasional"),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(_vm.sekolah.sk_izin_operasional))]),
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticStyle: { "padding-right": "10px" } }, [
+                      _vm._v("Tgl. SK Izin Operasional"),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(_vm._s(_vm.sekolah.tanggal_sk_izin_operasional)),
+                    ]),
+                  ]),
+                ]),
+              ]),
+            ],
+            1
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("div", { staticClass: "card h-100 overflow-hidden" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c(
+              "div",
+              { staticClass: "pt-3" },
+              [
+                _c(
+                  "h3",
+                  {
+                    staticClass:
+                      "text-dark text-center font-24 fw-bold line-height-lg",
+                  },
+                  [
+                    _vm._v(
+                      "\n                                Tahun Ajaran " +
+                        _vm._s(_vm.sekolah.tahun_ajaran) +
+                        "\n                                "
+                    ),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "badge bg-primary" }, [
+                      _vm._v(_vm._s(_vm.pkl.status.toUpperCase())),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("hr"),
+                _vm._v(" "),
+                _c("center", [
+                  _c("h4", [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\t\tLokasi PKL Anda\n\t\t\t\t\t\t\t\t"
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "table-responsive mt-3" }, [
+                  _c("table", {}, [
+                    _c("tr", [
+                      _c("td", { staticStyle: { "padding-right": "10px" } }, [
+                        _vm._v("Nama"),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(_vm.pkl.instansi.nama))]),
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", { staticStyle: { "padding-right": "10px" } }, [
+                        _vm._v("Alamat"),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(_vm.pkl.instansi.alamat))]),
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", { staticStyle: { "padding-right": "10px" } }, [
+                        _vm._v("Jenis"),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          _vm._s(
+                            _vm.pkl.instansi.jenis_perusahaan.toUpperCase()
+                          )
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", { staticStyle: { "padding-right": "10px" } }, [
+                        _vm._v("Status"),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          _vm._s(
+                            _vm.pkl.instansi.status_kepemilikan.toUpperCase()
+                          )
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", { staticStyle: { "padding-right": "10px" } }, [
+                        _vm._v("Lokasi"),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticStyle: { width: "5%" } }, [_vm._v(":")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          _vm._s(_vm.pkl.instansi.latitude) +
+                            ", " +
+                            _vm._s(_vm.pkl.instansi.longitude)
+                        ),
+                      ]),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("Map", { attrs: { instansi: [_vm.pkl.instansi] } }),
+              ],
+              1
+            ),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-5" }, [
+        _c("div", { staticClass: "card h-100" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "card-body" },
+            [_c("Map", { attrs: { instansi: _vm.instansi } })],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "card-footer" },
+            _vm._l(_vm.instansi, function (i, index) {
+              return _c(
+                "span",
+                {
+                  key: index,
+                  staticClass: "badge bg-primary",
+                  staticStyle: { "margin-right": "5px" },
+                },
+                [_vm._v(_vm._s(i.nama) + " (5 orang)")]
+              )
+            }),
+            0
+          ),
+        ]),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _vm._v(
+        "\n                        Peta Sebaran Lokasi Prakerin\n                        "
+      ),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v("Tahun Ajaran 2021/2022\n                    "),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=template&id=23fbeae7&":
 /*!******************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/partials/dashboard/components/Map.vue?vue&type=template&id=23fbeae7& ***!
@@ -15493,7 +16089,11 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [_vm.checkType == "admin" ? _c("AdminDashboard") : _vm._e()],
+    [
+      _vm.checkType == "admin" ? _c("AdminDashboard") : _vm._e(),
+      _vm._v(" "),
+      _vm.checkType == "siswa" ? _c("SiswaDashbboard") : _vm._e(),
+    ],
     1
   )
 }
