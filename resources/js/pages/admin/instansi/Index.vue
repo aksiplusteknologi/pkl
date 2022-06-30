@@ -156,6 +156,7 @@ export default {
         },
 
         deleteInstansi: function(instansi) {
+            return false;
             swal({
                 title: "Anda akan menghapus Data Instansi " + instansi.nama,
                 text: "Lanjutkan?",
