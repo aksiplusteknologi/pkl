@@ -6,7 +6,7 @@
                     <h4 class="card-title">Manajemen Data Guru / Pembimbing Sekolah</h4>
                     <p
                         class="text-muted mb-0"
-                    >Menampilkan {{ table.rows.length }} Data Pelaksanaan Praktek Kerja Lapangan</p>
+                    >Menampilkan {{ table.rows.length }} Data Pelaksanaan Praktek Kerja Industri</p>
                 </div>
                 <div class="float-end">
                     <button

@@ -2,8 +2,8 @@
     <div>
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Pelaksanaan Praktek Kerja Lapangan</h4>
-                <p class="text-muted mb-0">Menampilkan 3 Data Pelaksanaan Praktek Kerja Lapangan</p>
+                <h4 class="card-title">Pelaksanaan Praktek Kerja Industri</h4>
+                <p class="text-muted mb-0">Menampilkan 3 Data Pelaksanaan Praktek Kerja Industri</p>
             </div>
             <!--end card-header-->
             <div class="card-body">

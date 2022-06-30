@@ -576,11 +576,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c("h4", { staticClass: "card-title" }, [
-        _vm._v("Pelaksanaan Praktek Kerja Lapangan"),
+        _vm._v("Pelaksanaan Praktek Kerja Industri"),
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "text-muted mb-0" }, [
-        _vm._v("Menampilkan 3 Data Pelaksanaan Praktek Kerja Lapangan"),
+        _vm._v("Menampilkan 3 Data Pelaksanaan Praktek Kerja Industri"),
       ]),
     ])
   },

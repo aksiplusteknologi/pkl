@@ -18,7 +18,7 @@
                                         </a>
                                         <h4
                                             class="mt-3 mb-1 fw-semibold text-white font-18"
-                                        >Sistem Praktek Kerja Lapangan</h4>
+                                        >Sistem Praktek Kerja Industri</h4>
                                         <p class="text-muted mb-0">SMK Darussalam Tarogong Kaler.</p>
                                     </div>
                                 </div>

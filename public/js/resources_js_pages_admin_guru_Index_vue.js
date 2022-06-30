@@ -503,7 +503,7 @@ var render = function () {
             _vm._v(
               "Menampilkan " +
                 _vm._s(_vm.table.rows.length) +
-                " Data Pelaksanaan Praktek Kerja Lapangan"
+                " Data Pelaksanaan Praktek Kerja Industri"
             ),
           ]),
         ]),
