@@ -9,13 +9,13 @@
                     >Menampilkan {{ table.rows.length }} Data Pelaksanaan Praktek Kerja Industri</p>
                 </div>
                 <div class="float-end">
-                    <button
+                    <!-- <button
                         class="btn btn-success"
                         data-bs-toggle="modal"
                         data-bs-target="#importExcelModal"
                     >
                         <i class="fa fa-table"></i> Import Excel
-                    </button>
+                    </button> -->
                     <button class="btn btn-primary">
                         <i class="fa fa-plus"></i> Tambah Guru
                     </button>
