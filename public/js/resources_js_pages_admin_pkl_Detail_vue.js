@@ -309,6 +309,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -316,6 +318,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Map: _layouts_partials_dashboard_components_Map_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   computed: {
+    isAdmin: function isAdmin() {
+      var user = JSON.parse(this.$store.getters.user);
+
+      if (user.user_type == 'admin') {
+        return true;
+      } else {
+        return false;
+      }
+    },
     instansi: function instansi() {
       return this.pkl.instansi.map(function (el) {
         return _objectSpread(_objectSpread({}, el), {}, {
@@ -15492,26 +15503,35 @@ var render = function () {
                             slot: "table-actions",
                           },
                           [
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-success btn-sm",
-                                attrs: {
-                                  to: {
-                                    name: "admin.pkl.add",
-                                    params: {
-                                      pkl_id: _vm.$route.params.pkl_id,
-                                    },
-                                  },
-                                },
-                              },
-                              [
-                                _c("i", { staticClass: "fa fa-user-plus" }),
-                                _vm._v(" Tambah Siswa"),
-                              ]
-                            ),
-                          ],
-                          1
+                            _vm.isAdmin
+                              ? _c(
+                                  "div",
+                                  [
+                                    _c(
+                                      "router-link",
+                                      {
+                                        staticClass: "btn btn-success btn-sm",
+                                        attrs: {
+                                          to: {
+                                            name: "admin.pkl.add",
+                                            params: {
+                                              pkl_id: _vm.$route.params.pkl_id,
+                                            },
+                                          },
+                                        },
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass: "fa fa-user-plus",
+                                        }),
+                                        _vm._v(" Tambah Siswa"),
+                                      ]
+                                    ),
+                                  ],
+                                  1
+                                )
+                              : _vm._e(),
+                          ]
                         ),
                         _vm._v(" "),
                         _c(

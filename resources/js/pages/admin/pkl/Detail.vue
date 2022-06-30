@@ -46,7 +46,9 @@
                                 styleClass="vgt-table condensed pgTble"
                             >
                                 <div slot="table-actions">
-                                    <router-link :to="{ name: 'admin.pkl.add', params: { pkl_id: $route.params.pkl_id } }" class="btn btn-success btn-sm"><i class="fa fa-user-plus"></i> Tambah Siswa</router-link>
+                                    <div v-if="isAdmin">
+                                        <router-link :to="{ name: 'admin.pkl.add', params: { pkl_id: $route.params.pkl_id } }" class="btn btn-success btn-sm"><i class="fa fa-user-plus"></i> Tambah Siswa</router-link>
+                                    </div>
                                 </div>
 
                                 <div slot="selected-row-actions">
@@ -157,6 +159,17 @@ export default {
     },
 
     computed: {
+        isAdmin: function() {
+            let user = JSON.parse(this.$store.getters.user);
+
+            if(user.user_type == 'admin') {
+                return true;
+
+            } else {
+                return false;
+                
+                }
+        },
         instansi: function() {
             return this.pkl.instansi.map((el) => {
                 return {
