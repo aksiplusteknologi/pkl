@@ -111,12 +111,24 @@ class InstansiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Instansi::where('id', $id)->update($request->all());
+        $instansi = Instansi::findOrFail($id);
 
-        return response()->json([
-            'status' => true,
-            'message' => 'Berhasil memperbaharui Data Instansi',
-        ], 200);
+        $instansi->jenis_perusahaan = $request->jenis_perusahaan;
+        $instansi->status_kepemilikan = $request->status_kepemilikan;
+        $instansi->nama = $request->nama;
+        $instansi->text = $request->text;
+        $instansi->alamat = $request->alamat;
+        $instansi->latitude = $request->latitude;
+        $instansi->longitude = $request->longitude;
+        $instansi->jarak = $request->jarak;
+
+        if ($instansi->save()) {
+
+            return response()->json([
+                'status' => true,
+                'message' => 'Berhasil memperbaharui Data Instansi',
+            ], 200);
+        }
     }
 
     /**

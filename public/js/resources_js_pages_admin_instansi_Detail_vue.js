@@ -187,6 +187,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -217,6 +229,7 @@ __webpack_require__.r(__webpack_exports__);
         status_kepemilikan: '',
         jenis_perusahaan: ''
       },
+      edit_mode: false,
       list_pkl: [],
       selected_pkl: {
         id: '',
@@ -259,16 +272,44 @@ __webpack_require__.r(__webpack_exports__);
         $.LoadingOverlay("hide");
       });
     },
-    getPklList: function getPklList() {
+    editJarak: function editJarak() {
+      this.edit_mode = true;
+    },
+    saveJarak: function saveJarak() {
       var _this3 = this;
 
+      swal({
+        title: "Anda akan memperbaharui Jarak instansi ke sekolah",
+        text: "Lanjutkan?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: false
+      }).then(function (value) {
+        if (value) {
+          $.LoadingOverlay('show');
+          axios.put("/api/admin/instansi/".concat(_this3.$route.params.instansi_id), _this3.instansi).then(function (res) {
+            if (res.data.status) {
+              _this3.initData();
+
+              _this3.edit_mode = false;
+              swal(res.data.message, "Berhasil", 'success');
+            }
+          }).then(function () {
+            $.LoadingOverlay('hide');
+          });
+        }
+      });
+    },
+    getPklList: function getPklList() {
+      var _this4 = this;
+
       axios.get('/api/admin/pkl/create').then(function (res) {
-        _this3.list_pkl = res.data;
+        _this4.list_pkl = res.data;
 
-        if (_this3.list_pkl.length > 0) {
-          _this3.selected_pkl = _this3.list_pkl[0];
+        if (_this4.list_pkl.length > 0) {
+          _this4.selected_pkl = _this4.list_pkl[0];
 
-          _this3.getPKL();
+          _this4.getPKL();
         }
       });
     },
@@ -533,6 +574,77 @@ var render = function () {
                   ),
                 ]
               ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "info-list mb-1 mt-1" }, [
+              _c("p", { staticClass: "info-header mb-0" }, [
+                _vm._v("Jarak (meter)"),
+              ]),
+              _vm._v(" "),
+              !_vm.edit_mode
+                ? _c(
+                    "a",
+                    {
+                      staticClass: "info-content mt-0",
+                      attrs: { href: "javascript:void(0)" },
+                      on: { click: _vm.editJarak },
+                    },
+                    [
+                      _c("em", { staticClass: "fa fa-map-marker" }),
+                      _vm._v(
+                        " " +
+                          _vm._s(
+                            _vm.instansi.jarak
+                              ? _vm.instansi.jarak + " meter"
+                              : "Ganti Jarak"
+                          )
+                      ),
+                    ]
+                  )
+                : _c("div", [
+                    _c(
+                      "form",
+                      {
+                        on: {
+                          submit: function ($event) {
+                            $event.preventDefault()
+                            return _vm.saveJarak.apply(null, arguments)
+                          },
+                        },
+                      },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.instansi.jarak,
+                                expression: "instansi.jarak",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "number" },
+                            domProps: { value: _vm.instansi.jarak },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.instansi,
+                                  "jarak",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(1),
+                      ]
+                    ),
+                  ]),
             ]),
           ]),
         ]),
@@ -901,6 +1013,16 @@ var staticRenderFns = [
     return _c("div", { staticClass: "card-header" }, [
       _c("h4", { staticClass: "card-title" }, [_vm._v("Detail Instansi")]),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      { staticClass: "btn btn-success btn-sm", attrs: { type: "submit" } },
+      [_c("i", { staticClass: "fa fa-check" }), _vm._v(" Simpan")]
+    )
   },
 ]
 render._withStripped = true

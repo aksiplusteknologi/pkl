@@ -720,21 +720,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "float-end" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-success",
-          attrs: {
-            "data-bs-toggle": "modal",
-            "data-bs-target": "#importExcelModal",
-          },
-        },
-        [
-          _c("i", { staticClass: "fa fa-table" }),
-          _vm._v(" Import Excel\n                "),
-        ]
-      ),
-      _vm._v(" "),
       _c("button", { staticClass: "btn btn-primary" }, [
         _c("i", { staticClass: "fa fa-plus" }),
         _vm._v(" Tambah Guru\n                "),

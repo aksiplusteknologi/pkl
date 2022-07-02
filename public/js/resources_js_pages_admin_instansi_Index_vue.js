@@ -174,6 +174,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     deleteInstansi: function deleteInstansi(instansi) {
       var _this2 = this;
 
+      return false;
       swal({
         title: "Anda akan menghapus Data Instansi " + instansi.nama,
         text: "Lanjutkan?",

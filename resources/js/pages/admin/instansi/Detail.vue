@@ -28,6 +28,18 @@
               <p class="info-header mb-0">Titik Kordinat</p>
               <a href="#" class="info-content mt-0"><i class="fa fa-map-marker"></i> {{ `${instansi.latitude}, ${instansi.longitude}` }}</a>
             </div>
+            <div class="info-list mb-1 mt-1">
+              <p class="info-header mb-0">Jarak (meter)</p>
+              <a href="javascript:void(0)" v-if="!edit_mode" @click="editJarak" class="info-content mt-0"><em class="fa fa-map-marker"></em> {{ instansi.jarak ? instansi.jarak + ' meter' : 'Ganti Jarak' }}</a>
+              <div v-else>
+                <form @submit.prevent="saveJarak">
+                    <div class="form-group">
+                      <input type="number" class="form-control" v-model="instansi.jarak">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-check"></i> Simpan</button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -210,6 +222,7 @@ export default {
       status_kepemilikan: '',
       jenis_perusahaan: '',
     },
+    edit_mode: false,
 
     list_pkl: [],
 
@@ -257,6 +270,36 @@ export default {
       }).then(() => {
         $.LoadingOverlay("hide");
       });
+    },
+
+    editJarak: function() {
+      this.edit_mode = true;
+    },
+
+    saveJarak: function(){
+      swal({
+				title: `Anda akan memperbaharui Jarak instansi ke sekolah`,
+				text: "Lanjutkan?",
+				icon: "warning",
+				buttons: true,
+				dangerMode: false
+			}).then(value => {
+				if (value) {
+					$.LoadingOverlay('show');
+					axios
+					.put(`/api/admin/instansi/${this.$route.params.instansi_id}`, this.instansi)
+					.then(res => {
+						if (res.data.status) {
+              this.initData();
+              this.edit_mode = false;
+							swal(res.data.message, "Berhasil", 'success');
+						}
+					})
+					.then(() => {
+						$.LoadingOverlay('hide');
+					});
+				}
+			});
     },
 
     getPklList: function() {

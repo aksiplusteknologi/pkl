@@ -22,6 +22,7 @@ class CreateInstansisTable extends Migration
             $table->string('alamat');
             $table->string('latitude');
             $table->string('longitude');
+            $table->integer('jarak')->nullable();
             $table->timestamps();
         });
     }

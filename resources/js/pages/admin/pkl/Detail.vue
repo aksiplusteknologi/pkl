@@ -47,7 +47,8 @@
                             >
                                 <div slot="table-actions">
                                     <div v-if="isAdmin">
-                                        <router-link :to="{ name: 'admin.pkl.add', params: { pkl_id: $route.params.pkl_id } }" class="btn btn-success btn-sm"><i class="fa fa-user-plus"></i> Tambah Siswa</router-link>
+                                        <router-link :to="{ name: 'admin.pkl.add', params: { pkl_id: $route.params.pkl_id } }" class="btn btn-primary btn-sm"><i class="fa fa-user-plus"></i> Tambah Siswa</router-link>
+                                        <a href="javascript:void(0)" @click="exportReport" class="btn btn-success btn-sm"><i class="fa fa-excel-o"></i> Unduh Laporan</a>
                                     </div>
                                 </div>
 
@@ -253,6 +254,10 @@ export default {
                 $.LoadingOverlay("hide");
                 console.log('always executed');
             })
+        },
+
+        exportReport: function(){
+            console.log('export');
         },
     }
 };
