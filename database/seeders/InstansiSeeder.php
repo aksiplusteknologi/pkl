@@ -32,6 +32,7 @@ class InstansiSeeder extends Seeder
             $instansi->latitude = $this->generateLatLong($center, $radius)[0];
             $instansi->longitude = $this->generateLatLong($center, $radius)[1];
             $instansi->alamat = $faker->address;
+            $instansi->jarak = rand(2222, 8888);
 
             if ($instansi->save()) {
                 unset($instansi);
