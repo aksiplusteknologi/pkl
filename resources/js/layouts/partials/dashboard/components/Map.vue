@@ -65,6 +65,10 @@
                         <p class="info-header mb-0">Titik Kordinat</p>
                         <a :href="'https://www.google.com/maps/@' + selected_instansi.latitude + ',' + selected_instansi.longitude" target="_blank" class="info-content mt-0"><i class="fa fa-map-marker"></i> {{ `${selected_instansi.latitude}, ${selected_instansi.longitude}` }}</a>
                       </div>
+                      <div class="info-list mb-1 mt-1">
+                        <p class="info-header mb-0">Jarak</p>
+                        <span class="info-content mt-0">{{ selected_instansi.jarak ? selected_instansi.jarak + ' m' : '-' }}</span>
+                      </div>
                     </div>
                   </div>
                   
