@@ -84,9 +84,9 @@
                                     class="rounded-circle me-2 thumb-sm"
                                 />
                                 <div>
-                                    <small class="d-none d-md-block font-11">Admin</small>
+                                    <small class="d-none d-md-block font-11">{{ user.user_type == 'admin' ? 'Admin' : 'NIS : ' + user.detail.nis }}</small>
                                     <span class="d-none d-md-block fw-semibold font-12">
-                                        Administrator
+                                        {{ user.detail.nama }}
                                         <i class="mdi mdi-chevron-down"></i>
                                     </span>
                                 </div>
@@ -279,6 +279,10 @@ export default {
 
         user_type: function () {
             return JSON.parse(localStorage.getItem("user")).user_type;
+        },
+
+        user: function () {
+            return JSON.parse(localStorage.getItem("user"));
         },
     },
 

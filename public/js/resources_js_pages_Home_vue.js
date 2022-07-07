@@ -622,6 +622,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -17796,6 +17800,22 @@ var render = function () {
                           ),
                         ]
                       ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "info-list mb-1 mt-1" }, [
+                      _c("p", { staticClass: "info-header mb-0" }, [
+                        _vm._v("Jarak"),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "info-content mt-0" }, [
+                        _vm._v(
+                          _vm._s(
+                            _vm.selected_instansi.jarak
+                              ? _vm.selected_instansi.jarak + " m"
+                              : "-"
+                          )
+                        ),
+                      ]),
                     ]),
                   ]),
                 ]),

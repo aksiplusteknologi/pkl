@@ -68,6 +68,12 @@
                                 <span class="pointer badge bg-dark" @click="detail(props.row)">
                                     <i class="fa fa-info"></i> Selengkapnya
                                 </span>
+                                <span class="pointer badge bg-warning">
+                                    <i class="fa fa-penciil"></i> Edit
+                                </span>
+                                <span class="pointer badge bg-danger">
+                                    <i class="fa fa-trash"></i> Hapus
+                                </span>
                             </span>
                         </template>
                     </vue-good-table>

@@ -52,7 +52,7 @@ class AuthController extends Controller
                     if ($user->user_type == 'siswa' && $user->detail->is_alumni == 'y') {
                         $data = [
                             'status' => 0,
-                            'message' => 'Anda telah lulus dan tidak dapat mengakses E-Belajar.'
+                            'message' => 'Anda telah lulus dan tidak dapat mengakses Aplikasi.'
                         ];
 
                         return response()->json($data);
@@ -60,7 +60,7 @@ class AuthController extends Controller
 
                     $data = [
                         'status' => 1,
-                        'message' => 'Berhasil masuk ke E-Belajar',
+                        'message' => 'Berhasil masuk ke Aplikasi',
                         'token' => $user->createToken('EBELAJAR_' . strtoupper($user->user_type))->accessToken,
                         'user_type' => $user->user_type,
                         'user' => $user,

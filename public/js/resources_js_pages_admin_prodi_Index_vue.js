@@ -94,6 +94,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -408,6 +415,26 @@ var render = function () {
                                   _c("i", { staticClass: "fa fa-info" }),
                                   _vm._v(
                                     " Selengkapnya\n                            "
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "pointer badge bg-warning" },
+                                [
+                                  _c("i", { staticClass: "fa fa-penciil" }),
+                                  _vm._v(" Edit\n                            "),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "pointer badge bg-danger" },
+                                [
+                                  _c("i", { staticClass: "fa fa-trash" }),
+                                  _vm._v(
+                                    " Hapus\n                            "
                                   ),
                                 ]
                               ),
