@@ -43,15 +43,6 @@ class InstansiController extends Controller
         return response()->json($datas->paginate($request->perPage));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -90,16 +81,6 @@ class InstansiController extends Controller
         $siswa = Siswa::with(['rombel'])->whereIn('id', $siswa_id)->get();
 
         return response()->json($siswa);
-    }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
