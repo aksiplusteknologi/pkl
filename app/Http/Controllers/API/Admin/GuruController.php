@@ -50,7 +50,7 @@ class GuruController extends Controller
      */
     public function show($id)
     {
-        $guru = Guru::findOrFail($id);
+        $guru = Guru::with(['pkl.instansi', 'pkl.siswa'])->findOrFail($id);
 
         return response()->json($guru);
     }

@@ -25,6 +25,7 @@
              }
          </style>
 
+
     </head>
 
     <body id="body">
@@ -41,6 +42,7 @@
         <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
     
         <script src="/assets/js/app.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-loading-overlay/2.1.7/loadingoverlay.min.js' integrity='sha512-hktawXAt9BdIaDoaO9DlLp6LYhbHMi5A36LcXQeHgVKUH6kJMOQsAtIw2kmQ9RERDpnSTlafajo6USh9JUXckw==' crossorigin='anonymous'></script>
 
     </body>
 </html>

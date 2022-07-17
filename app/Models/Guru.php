@@ -19,6 +19,6 @@ class Guru extends Model
 
     public function pkl()
     {
-        return $this->belongsToMany(PKL::class, 'pkl', 'guru_id', 'pkl_id')->distinct();
+        return $this->hasMany(PKL::class)->distinct();
     }
 }
