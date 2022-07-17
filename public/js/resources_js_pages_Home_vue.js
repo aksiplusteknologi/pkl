@@ -17217,7 +17217,7 @@ var staticRenderFns = [
       { staticClass: "me-3 thumb-md align-self-center rounded" },
       [
         _c("i", {
-          staticClass: "fa fa-3x fa-building",
+          staticClass: "fa fa-2x fa-building",
           staticStyle: { color: "#388e3c" },
         }),
       ]
@@ -17248,7 +17248,7 @@ var staticRenderFns = [
       { staticClass: "me-3 thumb-md align-self-center rounded" },
       [
         _c("i", {
-          staticClass: "fa fa-3x fa-building",
+          staticClass: "fa fa-2x fa-users",
           staticStyle: { color: "#1976d2" },
         }),
       ]
@@ -17258,7 +17258,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "text-muted mb-0 fw-semibold" }, [
+    return _c("p", { staticClass: "text-muted mb-0 ml-3 fw-semibold" }, [
       _vm._v(
         "\n                                    Siswa Terdaftar\n                                    "
       ),
@@ -17279,7 +17279,7 @@ var staticRenderFns = [
       { staticClass: "me-3 thumb-md align-self-center rounded" },
       [
         _c("i", {
-          staticClass: "fa fa-3x fa-user-secret",
+          staticClass: "fa fa-2x fa-user",
           staticStyle: { color: "#f57c00" },
         }),
       ]

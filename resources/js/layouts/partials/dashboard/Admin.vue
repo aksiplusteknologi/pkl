@@ -6,7 +6,7 @@
                     <div class="card-body">
                         <div class="media">
                             <span class="me-3 thumb-md align-self-center rounded">
-                                <i class="fa fa-3x fa-building" style="color: #388e3c"></i>
+                                <i class="fa fa-2x fa-building" style="color: #388e3c"></i>
                             </span>
                             <div class="media-body align-self-center">
                                 <div class="coin-bal">
@@ -34,12 +34,12 @@
                     <div class="card-body">
                         <div class="media">
                             <span class="me-3 thumb-md align-self-center rounded">
-                                <i class="fa fa-3x fa-building" style="color: #1976d2"></i>
+                                <i class="fa fa-2x fa-users" style="color: #1976d2;"></i>
                             </span>
                             <div class="media-body align-self-center">
                                 <div class="coin-bal">
                                     <h4 class="mt-0 mb-1 font-22 fw-bold">{{ dashboard.siswa_count }}</h4>
-                                    <p class="text-muted mb-0 fw-semibold">
+                                    <p class="text-muted mb-0 ml-3 fw-semibold">
                                         Siswa Terdaftar
                                         <span class="text-success">
                                             1.2%
@@ -62,7 +62,7 @@
                     <div class="card-body">
                         <div class="media">
                             <span class="me-3 thumb-md align-self-center rounded">
-                                <i class="fa fa-3x fa-user-secret" style="color: #f57c00"></i>
+                                <i class="fa fa-2x fa-user" style="color: #f57c00"></i>
                             </span>
                             <div class="media-body align-self-center">
                                 <div class="coin-bal">

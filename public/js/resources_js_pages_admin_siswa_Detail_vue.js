@@ -210,6 +210,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _layouts_partials_dashboard_components_Map_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/layouts/partials/dashboard/components/Map.vue */ "./resources/js/layouts/partials/dashboard/components/Map.vue");
+/* harmony import */ var _library_date_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/library/date.js */ "./resources/js/library/date.js");
 //
 //
 //
@@ -280,7 +281,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  filters: {
+    indoDate: function indoDate(value) {
+      return (0,_library_date_js__WEBPACK_IMPORTED_MODULE_1__["default"])(value);
+    }
+  },
   components: {
     Map: _layouts_partials_dashboard_components_Map_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -311,6 +318,39 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
+
+/***/ }),
+
+/***/ "./resources/js/library/date.js":
+/*!**************************************!*\
+  !*** ./resources/js/library/date.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function indonesianDate(my_date) {
+  // return my_date
+  // return my_date[2] + my_date[1] + my_date[0];
+  if (!my_date) {
+    return false;
+  }
+
+  var str = my_date;
+  var date = moment(str);
+  return date.format('Do MMMM YYYY');
+}
+
+function getTimeZone() {
+  var raw_data = localStorage.getItem('sekolah');
+  var sekolah = JSON.parse(raw_data);
+  return sekolah.timezone.toUpperCase();
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (indonesianDate);
 
 /***/ }),
 
