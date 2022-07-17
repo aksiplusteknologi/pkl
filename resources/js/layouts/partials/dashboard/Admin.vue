@@ -10,7 +10,7 @@
                             </span>
                             <div class="media-body align-self-center">
                                 <div class="coin-bal">
-                                    <h4 class="mt-0 mb-1 font-22 fw-bold">45</h4>
+                                    <h4 class="mt-0 mb-1 font-22 fw-bold">{{ dashboard.instansi_count }}</h4>
                                     <p class="text-muted mb-0 fw-semibold">
                                         Total Instansi
                                         <span class="text-success">
@@ -38,7 +38,7 @@
                             </span>
                             <div class="media-body align-self-center">
                                 <div class="coin-bal">
-                                    <h4 class="mt-0 mb-1 font-22 fw-bold">762</h4>
+                                    <h4 class="mt-0 mb-1 font-22 fw-bold">{{ dashboard.siswa_count }}</h4>
                                     <p class="text-muted mb-0 fw-semibold">
                                         Siswa Terdaftar
                                         <span class="text-success">
@@ -66,9 +66,9 @@
                             </span>
                             <div class="media-body align-self-center">
                                 <div class="coin-bal">
-                                    <h4 class="mt-0 mb-1 font-22 fw-bold">41</h4>
+                                    <h4 class="mt-0 mb-1 font-22 fw-bold">{{ dashboard.guru_count }}</h4>
                                     <p class="text-muted mb-0 fw-semibold">
-                                        Pembimbing Sekolah
+                                        Guru
                                         <!-- <span class="text-success">
                                             0.5%
                                             <i class="mdi mdi-arrow-up"></i>
@@ -153,7 +153,7 @@
                             >Pengaturan yang dilakukan akan tersimpan pada Tahun Ajaran {{ sekolah.tahun_ajaran }}. Hati-hati dalam merubah pengaturan</div>
 
                             <div class="text-center py-3 mb-3">
-                                <a href="#" class="btn btn-primary">
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#selectTahunAjaran" class="btn btn-primary">
                                     <i class="fa fa-calendar"></i> Ubah Tahun Ajaran
                                 </a>
                             </div>
@@ -187,6 +187,33 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="selectTahunAjaran" tabindex="-1" aria-labelledby="selectTahunAjaranLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="selectTahunAjaranLabel">Ubah Tahun Ajaran</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <select name="pilih_tahun_ajaran" id="tahun_ajaran" class="form-control">
+                                <option value="2019/2022">2019/2022</option>
+                                <option value="2019/2022">2020/2021</option>
+                                <option value="2019/2022">2021/2022</option>
+                                <option value="2019/2022">2022/2023</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Simpan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
     </div>
 </template>
 
@@ -200,6 +227,11 @@ export default {
     },
 
     data: () => ({
+        dashboard: {
+            instansi_count: 0,
+            siswa_count: 0,
+            guru_count: 0,
+        },
         sekolah: {},
 
         instansi: [
@@ -233,10 +265,18 @@ export default {
 
     mounted() {
         this.getSekolah();
+        this.getDashboard();
         this.getInstansi();
     },
 
     methods: {
+        getDashboard: function() {
+            axios.get('/api/admin/dashboard')
+            .then( res => {
+                this.dashboard = res.data;
+            })
+        },
+
         getSekolah: function () {
             axios.get("/api/pub/sekolah").then((res) => {
                 this.sekolah = res.data;

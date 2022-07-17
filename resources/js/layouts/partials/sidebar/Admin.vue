@@ -60,7 +60,7 @@
                     :to="{ name: 'admin.prodi.index' }"
                 >
                     <i class="fa fa-university menu-icon"></i>
-                    <span>Prodi / Jurusan</span>
+                    <span>Jurusan</span>
                 </router-link>
             </li>
             <li class="nav-item" :class="{ 'menuitem-active': subIsActive('/admin_area/siswa') }">

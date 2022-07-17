@@ -210,6 +210,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -217,6 +244,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
+      dashboard: {
+        instansi_count: 0,
+        siswa_count: 0,
+        guru_count: 0
+      },
       sekolah: {},
       instansi: [{
         nama: "PT. Mobidu",
@@ -243,21 +275,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mounted: function mounted() {
     this.getSekolah();
+    this.getDashboard();
     this.getInstansi();
   },
   methods: {
-    getSekolah: function getSekolah() {
+    getDashboard: function getDashboard() {
       var _this = this;
 
+      axios.get('/api/admin/dashboard').then(function (res) {
+        _this.dashboard = res.data;
+      });
+    },
+    getSekolah: function getSekolah() {
+      var _this2 = this;
+
       axios.get("/api/pub/sekolah").then(function (res) {
-        _this.sekolah = res.data;
+        _this2.sekolah = res.data;
       });
     },
     getInstansi: function getInstansi() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.get("/api/admin/instansi?dashboard=y").then(function (res) {
-        _this2.instansi = res.data.map(function (el) {
+        _this3.instansi = res.data.map(function (el) {
           return _objectSpread(_objectSpread({}, el), {}, {
             latlang: [el.latitude, el.longitude]
           });
@@ -16914,7 +16954,71 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _c("div", { staticClass: "row mt-3" }, [
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "media" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "media-body align-self-center" }, [
+                _c("div", { staticClass: "coin-bal" }, [
+                  _c("h4", { staticClass: "mt-0 mb-1 font-22 fw-bold" }, [
+                    _vm._v(_vm._s(_vm.dashboard.instansi_count)),
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(1),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "media" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c("div", { staticClass: "media-body align-self-center" }, [
+                _c("div", { staticClass: "coin-bal" }, [
+                  _c("h4", { staticClass: "mt-0 mb-1 font-22 fw-bold" }, [
+                    _vm._v(_vm._s(_vm.dashboard.siswa_count)),
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(3),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "media" }, [
+              _vm._m(4),
+              _vm._v(" "),
+              _c("div", { staticClass: "media-body align-self-center" }, [
+                _c("div", { staticClass: "coin-bal" }, [
+                  _c("h4", { staticClass: "mt-0 mb-1 font-22 fw-bold" }, [
+                    _vm._v(_vm._s(_vm.dashboard.guru_count)),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "text-muted mb-0 fw-semibold" }, [
+                    _vm._v(
+                      "\n                                    Guru\n                                    "
+                    ),
+                  ]),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-4" }, [
@@ -17058,7 +17162,7 @@ var render = function () {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(1),
+              _vm._m(5),
               _vm._v(" "),
               _c("img", {
                 staticClass: "img-fluid px-3 mb-2",
@@ -17071,7 +17175,7 @@ var render = function () {
       _vm._v(" "),
       _c("div", { staticClass: "col-md-5" }, [
         _c("div", { staticClass: "card h-100" }, [
-          _vm._m(2),
+          _vm._m(6),
           _vm._v(" "),
           _c(
             "div",
@@ -17099,6 +17203,8 @@ var render = function () {
         ]),
       ]),
     ]),
+    _vm._v(" "),
+    _vm._m(7),
   ])
 }
 var staticRenderFns = [
@@ -17106,116 +17212,30 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mt-3" }, [
-      _c("div", { staticClass: "col-md-4" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "media" }, [
-              _c(
-                "span",
-                { staticClass: "me-3 thumb-md align-self-center rounded" },
-                [
-                  _c("i", {
-                    staticClass: "fa fa-3x fa-building",
-                    staticStyle: { color: "#388e3c" },
-                  }),
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "media-body align-self-center" }, [
-                _c("div", { staticClass: "coin-bal" }, [
-                  _c("h4", { staticClass: "mt-0 mb-1 font-22 fw-bold" }, [
-                    _vm._v("45"),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-muted mb-0 fw-semibold" }, [
-                    _vm._v(
-                      "\n                                    Total Instansi\n                                    "
-                    ),
-                    _c("span", { staticClass: "text-success" }, [
-                      _vm._v(
-                        "\n                                        2.5%\n                                        "
-                      ),
-                      _c("i", { staticClass: "mdi mdi-arrow-up" }),
-                    ]),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-4" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "media" }, [
-              _c(
-                "span",
-                { staticClass: "me-3 thumb-md align-self-center rounded" },
-                [
-                  _c("i", {
-                    staticClass: "fa fa-3x fa-building",
-                    staticStyle: { color: "#1976d2" },
-                  }),
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "media-body align-self-center" }, [
-                _c("div", { staticClass: "coin-bal" }, [
-                  _c("h4", { staticClass: "mt-0 mb-1 font-22 fw-bold" }, [
-                    _vm._v("762"),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-muted mb-0 fw-semibold" }, [
-                    _vm._v(
-                      "\n                                    Siswa Terdaftar\n                                    "
-                    ),
-                    _c("span", { staticClass: "text-success" }, [
-                      _vm._v(
-                        "\n                                        1.2%\n                                        "
-                      ),
-                      _c("i", { staticClass: "mdi mdi-arrow-up" }),
-                    ]),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-4" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "media" }, [
-              _c(
-                "span",
-                { staticClass: "me-3 thumb-md align-self-center rounded" },
-                [
-                  _c("i", {
-                    staticClass: "fa fa-3x fa-user-secret",
-                    staticStyle: { color: "#f57c00" },
-                  }),
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "media-body align-self-center" }, [
-                _c("div", { staticClass: "coin-bal" }, [
-                  _c("h4", { staticClass: "mt-0 mb-1 font-22 fw-bold" }, [
-                    _vm._v("41"),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-muted mb-0 fw-semibold" }, [
-                    _vm._v(
-                      "\n                                    Pembimbing Sekolah\n                                    "
-                    ),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
-        ]),
+    return _c(
+      "span",
+      { staticClass: "me-3 thumb-md align-self-center rounded" },
+      [
+        _c("i", {
+          staticClass: "fa fa-3x fa-building",
+          staticStyle: { color: "#388e3c" },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text-muted mb-0 fw-semibold" }, [
+      _vm._v(
+        "\n                                    Total Instansi\n                                    "
+      ),
+      _c("span", { staticClass: "text-success" }, [
+        _vm._v(
+          "\n                                        2.5%\n                                        "
+        ),
+        _c("i", { staticClass: "mdi mdi-arrow-up" }),
       ]),
     ])
   },
@@ -17223,11 +17243,68 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center py-3 mb-3" }, [
-      _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
-        _c("i", { staticClass: "fa fa-calendar" }),
-        _vm._v(" Ubah Tahun Ajaran\n                            "),
+    return _c(
+      "span",
+      { staticClass: "me-3 thumb-md align-self-center rounded" },
+      [
+        _c("i", {
+          staticClass: "fa fa-3x fa-building",
+          staticStyle: { color: "#1976d2" },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text-muted mb-0 fw-semibold" }, [
+      _vm._v(
+        "\n                                    Siswa Terdaftar\n                                    "
+      ),
+      _c("span", { staticClass: "text-success" }, [
+        _vm._v(
+          "\n                                        1.2%\n                                        "
+        ),
+        _c("i", { staticClass: "mdi mdi-arrow-up" }),
       ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      { staticClass: "me-3 thumb-md align-self-center rounded" },
+      [
+        _c("i", {
+          staticClass: "fa fa-3x fa-user-secret",
+          staticStyle: { color: "#f57c00" },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center py-3 mb-3" }, [
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-primary",
+          attrs: {
+            href: "javascript:void(0)",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#selectTahunAjaran",
+          },
+        },
+        [
+          _c("i", { staticClass: "fa fa-calendar" }),
+          _vm._v(" Ubah Tahun Ajaran\n                            "),
+        ]
+      ),
     ])
   },
   function () {
@@ -17242,6 +17319,94 @@ var staticRenderFns = [
       _c("br"),
       _vm._v("Tahun Ajaran 2021/2022\n                "),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "selectTahunAjaran",
+          tabindex: "-1",
+          "aria-labelledby": "selectTahunAjaranLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _c("div", { staticClass: "modal-header" }, [
+              _c(
+                "h5",
+                {
+                  staticClass: "modal-title",
+                  attrs: { id: "selectTahunAjaranLabel" },
+                },
+                [_vm._v("Ubah Tahun Ajaran")]
+              ),
+              _vm._v(" "),
+              _c("button", {
+                staticClass: "btn-close",
+                attrs: {
+                  type: "button",
+                  "data-bs-dismiss": "modal",
+                  "aria-label": "Close",
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("form", [
+                _c(
+                  "select",
+                  {
+                    staticClass: "form-control",
+                    attrs: { name: "pilih_tahun_ajaran", id: "tahun_ajaran" },
+                  },
+                  [
+                    _c("option", { attrs: { value: "2019/2022" } }, [
+                      _vm._v("2019/2022"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2019/2022" } }, [
+                      _vm._v("2020/2021"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2019/2022" } }, [
+                      _vm._v("2021/2022"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2019/2022" } }, [
+                      _vm._v("2022/2023"),
+                    ]),
+                  ]
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                [_vm._v("Simpan")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    )
   },
 ]
 render._withStripped = true

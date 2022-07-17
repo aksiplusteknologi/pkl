@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Guru;
+use App\Models\Instansi;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -14,7 +17,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
+        return [
+            'siswa_count' => Siswa::count(),
+            'guru_count' => Guru::count(),
+            'instansi_count' => Instansi::count(),
+        ];
     }
 
     /**
