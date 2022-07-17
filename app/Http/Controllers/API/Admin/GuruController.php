@@ -52,7 +52,7 @@ class GuruController extends Controller
     public function show($id)
     {
         $guru = Guru::findOrFail($id);
-        $guru['pkl'] = PKL::with(['guru', 'instansi'])->where('guru_id', $id)->withCount(['siswa'])->get();
+        $guru['pkl'] = PKL::with(['guru', 'instansi', 'siswa'])->where('guru_id', $id)->withCount(['siswa'])->get();
 
         return response()->json($guru);
     }
