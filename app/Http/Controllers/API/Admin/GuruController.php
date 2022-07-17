@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Guru;
+use App\Models\PKL;
 use Illuminate\Http\Request;
 
 class GuruController extends Controller
@@ -50,7 +51,8 @@ class GuruController extends Controller
      */
     public function show($id)
     {
-        $guru = Guru::with(['pkl.instansi', 'pkl.siswa'])->findOrFail($id);
+        $guru = Guru::findOrFail($id);
+        $guru['pkl'] = PKL::with(['guru', 'instansi'])->where('guru_id', $id)->withCount(['siswa']);
 
         return response()->json($guru);
     }
