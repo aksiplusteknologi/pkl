@@ -69,7 +69,14 @@
 </template>
 
 <script>
+import indonesianDate from "@/library/date.js";
+
 export default {
+    filters: {
+        indoDate: function (value) {
+            return indonesianDate(value);
+        },
+    },
     data: () => ({
         guru: {
             pkl: [],

@@ -69,7 +69,14 @@
 
 <script>
 import Map from "@/layouts/partials/dashboard/components/Map.vue";
+import indonesianDate from "@/library/date.js";
 export default {
+    filters: {
+        indoDate: function (value) {
+            return indonesianDate(value);
+        },
+    },
+
 
   components: {
     Map
