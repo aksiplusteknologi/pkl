@@ -15,4 +15,10 @@ class Guru extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+
+    public function pkl()
+    {
+        return $this->belongsToMany(PKL::class, 'pkl', 'guru_id', 'pkl_id')->distinct();
+    }
 }

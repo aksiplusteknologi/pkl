@@ -57,7 +57,7 @@ class SiswaController extends Controller
      */
     public function show($id)
     {
-        $siswa = Siswa::findOrFail($id);
+        $siswa = Siswa::with('rombel')->findOrFail($id);
 
         return response()->json($siswa, 200);
     }
